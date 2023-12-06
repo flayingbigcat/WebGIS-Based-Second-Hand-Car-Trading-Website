@@ -1,18 +1,24 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router'
 
 // 导入组件
-import HelloWorld from '../components/Index.vue';
-// import About from '../views/About.vue';
-// import Contact from '../views/Contact.vue';
+import HelloWorld from '../components/Index.vue'
+import SignUp from '../components/SignUp.vue'
+import LoginPage from '../components/LoginPage.vue'
+import CartPage from '../components/CartPage.vue'
+import OrderPage from '../components/OrderPage.vue'
+import ShopPage from '../components/ShopPage.vue'
 
 // 创建路由实例
 const router = createRouter({
     history: createWebHistory(),
     routes: [
         { path: '/', component: HelloWorld },
-        { path: '/index', component: HelloWorld },
-        // { path: '/about', component: About },
-        // { path: '/contact', component: Contact },
+        { path: '/Index', component: HelloWorld },
+        { path: '/SignUp', component: SignUp },
+        { path: '/LoginPage', component: LoginPage },
+        { path: '/CartPage', component: CartPage},
+        { path: '/OrderPage', component: OrderPage},
+        { path: '/ShopPage',component: ShopPage}
     ],
 });
 
