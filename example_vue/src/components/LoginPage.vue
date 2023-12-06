@@ -18,6 +18,7 @@
                                     <button type="submit" class="btn btn-dark text-center">Login</button>
                                 </div>
                             </form>
+                            <p><router-link class="custom-link" to="/ForgetPage"> Forgot your password?</router-link></p>
                             <p class="mt-20">New in this site? <router-link class="custom-link" to="/SignUp">Create New Account</router-link></p>
                         </div>
                     </div>
@@ -57,7 +58,7 @@ export default {
     background-color: #fff;
     border: 1px solid #dedede;
     padding: 30px;
-    margin: 175px auto; /* Center the block horizontally */
+    margin: 150px auto; /* Center the block horizontally */
     max-width: 500px; /* Set the maximum width */
 }
 .account .block form {

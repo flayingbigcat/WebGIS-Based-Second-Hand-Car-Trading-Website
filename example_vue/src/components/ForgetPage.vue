@@ -8,26 +8,15 @@
                         <div class="block text-center">
                             <h2 class="text-center">Welcom Back</h2>
                             <form @submit.prevent="submitForm" class="text-left clearfix">
+                                <p>Please enter the email address for your account. A verification code will be sent to you. Once you have received the verification code, you will be able to choose a new password for your account.</p>
                                 <div class="form-group">
-                                    <input type="text" class="form-control"  placeholder="First Name">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control"  placeholder="Last Name">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control"  placeholder="Username">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control"  placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control"  placeholder="Password">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Account email address">
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-dark text-center">Sign In</button>
+                                    <button type="submit" class="btn btn-dark text-center">Request password reset</button>
                                 </div>
                             </form>
-                            <p class="mt-20">Already hava an account ?<router-link class="custom-link" to="/LoginPage">Login</router-link></p>
+                            <p class="mt-20">New in this site? <router-link class="custom-link" to="/LoginPage">Back to log in</router-link></p>
                         </div>
                     </div>
                 </div>
@@ -66,7 +55,7 @@ export default {
     background-color: #fff;
     border: 1px solid #dedede;
     padding: 30px;
-    margin: 115px auto; /* Center the block horizontally */
+    margin: 150px auto; /* Center the block horizontally */
     max-width: 500px; /* Set the maximum width */
 }
 .account .block form {
