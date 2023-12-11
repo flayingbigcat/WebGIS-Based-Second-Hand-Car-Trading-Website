@@ -42,18 +42,44 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="title text-center">
-                    <h2>Product Category</h2>
+    <div class="mid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title text-center">
+                        <h2>Product Category</h2>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="product-item">
-                <div class="product-thumb">
-
+                <div class="col-md-6">
+                    <div class="category-box">
+                        <a href="#!">
+                            <img src="../assets/R.jpg" alt="" />
+                            <div class="content">
+                                <h3>Clothes Sales</h3>
+                                <p>Shop New Season Clothing</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="category-box">
+                        <a href="#!">
+                            <img src="../assets/R.jpg" alt="" />
+                            <div class="content">
+                                <h3>Smart Casuals</h3>
+                                <p>Get Wide Range Selection</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex align-items-center">
+                    <div class="category-box category-box-2">
+                        <a href="#!">
+                            <img src="../assets/Orange_Lamborghini_Aventador_2020_Supercar_HD_Desktop_2560x1440.jpg" alt="" />
+                            <div class="content">
+                                <h3>Jewellery</h3>
+                                <p>Special Design Comes First</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -84,7 +110,7 @@ export default {
     height: 80vh; /* 你想要的高度 */
     margin: auto; /* 如果需要居中显示 */
     margin-top: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 .carousel-inner {
     /* 设置内部图片的宽度和高度 */
@@ -131,5 +157,53 @@ export default {
 .product-thumb{
     position: relative;
 }
-
+.mid{
+    padding: 80px 0;
+}
+.title {
+    padding: 20px 0 30px;
+}
+.text-center {
+    text-align: center;
+}
+.title h2 {
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.category-box {
+    background-size: cover;
+    margin-bottom: 30px;
+    min-height: 350px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+.category-box.category-box-2 {
+    min-height: 450px;
+    margin-bottom: 0px;
+}
+.category-box .content {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    padding: 25px;
+}
+.category-box .content h3 {
+    margin: 0;
+    color: #333;
+    font-size: 20px;
+    font-weight: 500;
+}
+.category-box .content p {
+    margin: 6px 0 0;
+}
+.category-box img {
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    height: auto;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
 </style>
