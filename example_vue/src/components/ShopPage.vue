@@ -1,10 +1,16 @@
-<script setup>
+<script>
+import HeaderBar from "@/components/HeaderBar.vue";
+import {defineComponent} from "vue";
+
+export default defineComponent({
+    components: {HeaderBar}
+})
 
 </script>
 
 <template>
     <div>
-        <!-- Your component content goes here -->
+        <header-bar></header-bar>
     </div>
 </template>
 

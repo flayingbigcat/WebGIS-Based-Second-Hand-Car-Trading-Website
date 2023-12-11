@@ -12,7 +12,7 @@
                                 <div class="form-group">
                                     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Account email address">
                                 </div>
-                                <div class="text-center">
+                                <div class="text-center mt-20">
                                     <button type="submit" class="btn btn-dark text-center">Request password reset</button>
                                 </div>
                             </form>
