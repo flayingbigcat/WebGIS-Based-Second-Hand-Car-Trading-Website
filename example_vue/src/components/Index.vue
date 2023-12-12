@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="container">
         <header-bar></header-bar>
-        <div>
+        <div class="container">
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -53,18 +53,18 @@
                 <div class="col-md-6">
                     <div class="category-box">
                         <a href="#!">
-                            <img src="../assets/R.jpg" alt="" />
+                            <img src="../assets/F1.jpg" alt="" />
                             <div class="content">
-                                <h3>Clothes Sales</h3>
-                                <p>Shop New Season Clothing</p>
+                                <h3>Formula One</h3>
+                                <p>Super Faster and Super Power</p>
                             </div>
                         </a>
                     </div>
                     <div class="category-box">
                         <a href="#!">
-                            <img src="../assets/R.jpg" alt="" />
+                            <img src="../assets/Orange_Lamborghini_Aventador_2020_Supercar_HD_Desktop_2560x1440.jpg" alt="" />
                             <div class="content">
-                                <h3>Smart Casuals</h3>
+                                <h3>Lamborghini Aventador</h3>
                                 <p>Get Wide Range Selection</p>
                             </div>
                         </a>
@@ -73,12 +73,122 @@
                 <div class="col-md-6 d-flex align-items-center">
                     <div class="category-box category-box-2">
                         <a href="#!">
-                            <img src="../assets/Orange_Lamborghini_Aventador_2020_Supercar_HD_Desktop_2560x1440.jpg" alt="" />
+                            <img src="../assets/R.jpg" alt="" />
                             <div class="content">
-                                <h3>Jewellery</h3>
+                                <h3>Lamborghini_Aventador</h3>
                                 <p>Special Design Comes First</p>
                             </div>
                         </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="title text-center">
+                    <h2>Trendy Products</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <div class="product-thumb">
+                            <img class="img-responsive img-fluid" src="../assets/product_1.jpg" alt="product-img" />
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h4><a href="#">Strayhorn SP</a></h4>
+                        <p class="price">$999</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <div class="product-thumb">
+                            <img class="img-responsive img-fluid" src="../assets/product_2.jpg" alt="product-img" />
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h4><a href="#">BMW X5</a></h4>
+                        <p class="price">$999</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <div class="product-thumb">
+                            <img class="img-responsive img-fluid" src="../assets/product_3.jpg" alt="product-img" />
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h4><a href="#">Ferrari 458</a></h4>
+                        <p class="price">$999</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <div class="product-thumb">
+                            <img class="img-responsive img-fluid" src="../assets/product_4.jpg" alt="product-img" />
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h4><a href="#">Hummer H2</a></h4>
+                        <p class="price">$999</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <div class="product-thumb">
+                            <img class="img-responsive img-fluid" src="../assets/product_5.jpg" alt="product-img" />
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h4><a href="#">Chevrolet Camaro</a></h4>
+                        <p class="price">$999</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <div class="product-thumb">
+                            <img class="img-responsive img-fluid" src="../assets/product_6.jpg" alt="product-img" />
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h4><a href="#">Tesla Model 3</a></h4>
+                        <p class="price">$999</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <div class="product-thumb">
+                            <img class="img-responsive img-fluid" src="../assets/product_7.jpg" alt="product-img" />
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h4><a href="#">Audi A4</a></h4>
+                        <p class="price">$999</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <div class="product-thumb">
+                            <img class="img-responsive img-fluid" src="../assets/product_8.jpg" alt="product-img" />
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h4><a href="#">McLAREN SENNA</a></h4>
+                        <p class="price">$999</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <div class="product-thumb">
+                            <img class="img-responsive img-fluid" src="../assets/product_9.jpg" alt="product-img" />
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h4><a href="#">Volkswagen Beetle</a></h4>
+                        <p class="price">$999</p>
                     </div>
                 </div>
             </div>
@@ -101,16 +211,43 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.package {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background:$black;
+    color: $light;
+    font-size:12px;
+    padding:4px 12px;
+    font-weight:300;
+    display:inline-block;
+}
 .nav-item:not(:last-child) {
     margin-right: 15px; /* 调整右边距，根据需要修改值 */
 }
 #carouselExampleCaptions {
     /* 设置宽度和高度 */
     width: 100%; /* 你想要的宽度 */
-    height: 80vh; /* 你想要的高度 */
     margin: auto; /* 如果需要居中显示 */
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+@media (max-width: 512px) {
+    #carouselExampleCaptions {
+        height:25vh; /* 小屏幕上的高度 */
+        margin-bottom: 0;
+    }
+}
+/* 中等屏幕 */
+@media (min-width: 512px) and (max-width: 1024px) {
+    #carouselExampleCaptions {
+        height: 35vh; /* 中等屏幕上的高度 */
+    }
+}
+@media (min-width: 1080px) {
+    #carouselExampleCaptions {
+        height: 80vh; /* 大屏幕上的高度 */
+    }
 }
 .carousel-inner {
     /* 设置内部图片的宽度和高度 */
@@ -157,6 +294,42 @@ export default {
 .product-thumb{
     position: relative;
 }
+.product-item .product-thumb {
+    position: relative;
+}
+.product-content {
+    text-align:center;
+    h4 {
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 15px;
+        margin-bottom: 6px;
+        a {
+            color:$black;
+        }
+    }
+}
+.product-content h4 a {
+    color: #000;
+    text-decoration: none;
+}
+product-content h4 {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 15px;
+    margin-bottom: 6px;
+}
+.preview-meta {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.2s;
+    transform: translateY(10px);
+}
 .mid{
     padding: 80px 0;
 }
@@ -175,7 +348,7 @@ export default {
 .category-box {
     background-size: cover;
     margin-bottom: 30px;
-    min-height: 350px;
+    min-height: 250px;
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -205,5 +378,8 @@ export default {
     height: auto;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+}
+.category-box:hover img {
+    transform: scale(1.2); /* 鼠标悬停时放大图像 */
 }
 </style>
