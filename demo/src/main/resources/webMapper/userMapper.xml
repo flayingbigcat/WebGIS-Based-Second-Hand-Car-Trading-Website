@@ -3,8 +3,26 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="text">
-    <select id="selectAll" resultType="pojo.User">
-        select * form user;
+<mapper namespace="com.example.demo.mapper.userMapper">
+    <insert id="addUser" >
+        insert into users (user_name, user_password)
+        values (#{user_name},#{user_password})
+    </insert>
+
+    <insert id="addUserCheckIsExist">
+ insert into users (user_name, user_password)
+        values (#{user_name},#{user_password})
+
+ </insert>
+
+    <select id="selectAll" resultType="com.example.demo.pojo.User">
+        select * from users;
     </select>
+    <select id="selectUserById" resultType="com.example.demo.pojo.User">
+        select * from users where user_id=#{user_id}
+    </select>
+
+    <select id="userLogin" resultType="com.example.demo.pojo.User">
+ select * from users where user_name=#{user_name} and user_password=#{user_password}
+ </select>
 </mapper>
