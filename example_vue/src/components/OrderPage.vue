@@ -4,7 +4,16 @@ import {defineComponent} from "vue";
 import FooterBar from "@/components/FooterPage.vue";
 
 export default defineComponent({
-    components: {FooterBar, HeaderBar}
+    components: {FooterBar, HeaderBar},
+    data() {
+        return {
+            tableData: [
+                { date: 'Mar 25, 2023', items: '1', price: '9999$' },
+                { date: 'Mar 25, 2023', items: '1', price: '9999$' },
+                { date: 'Mar 25, 2023', items: '1', price: '9999$' },
+            ]
+        };
+    }
 })
 
 </script>
@@ -36,28 +45,18 @@ export default defineComponent({
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Items</th>
+                    <th scope="col">Total Price</th>
                 </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
+                <tr v-for="(item, index) in tableData" :key="index">
+                    <th scope="row">{{ index + 1 }}</th>
+                    <td>{{ item.date }}</td>
+                    <td v-if="item.items !== undefined">{{ item.items }}</td>
+                    <td v-else colspan="2">{{ item.price }}</td>
+                    <td>{{ item.price }}</td>
                 </tr>
                 </tbody>
             </table>

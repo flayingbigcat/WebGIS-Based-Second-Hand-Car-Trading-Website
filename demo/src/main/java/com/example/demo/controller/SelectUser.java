@@ -34,7 +34,7 @@ public class SelectUser {
 
 //        userService.addUser(user);
     }
-    @PostMapping("/addUserLogin")
+    @PostMapping("/LoginPage")
     public User userLogin(@RequestBody User user){
         return userService.userLogin(user);  
     }

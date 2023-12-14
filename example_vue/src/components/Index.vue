@@ -91,107 +91,19 @@
                     <h2>Trendy Products</h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="product-item">
-                        <div class="product-thumb">
-                            <img class="img-responsive img-fluid" src="../assets/product_1.jpg" alt="product-img" />
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h4><router-link to="#">Strayhorn SP</router-link></h4>
-                        <p class="price">$999</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-item">
-                        <div class="product-thumb">
-                            <img class="img-responsive img-fluid" src="../assets/product_2.jpg" alt="product-img" />
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h4><router-link to="#">BMW X5</router-link></h4>
-                        <p class="price">$999</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-item">
-                        <div class="product-thumb">
-                            <img class="img-responsive img-fluid" src="../assets/product_3.jpg" alt="product-img" />
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h4><router-link to="#">Ferrari 458</router-link></h4>
-                        <p class="price">$999</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-item">
-                        <div class="product-thumb">
-                            <img class="img-responsive img-fluid" src="../assets/product_4.jpg" alt="product-img" />
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h4><router-link to="#">Hummer H2</router-link></h4>
-                        <p class="price">$999</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-item">
-                        <div class="product-thumb">
-                            <img class="img-responsive img-fluid" src="../assets/product_5.jpg" alt="product-img" />
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h4><router-link to="#">Chevrolet Camaro</router-link></h4>
-                        <p class="price">$999</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-item">
-                        <div class="product-thumb">
-                            <img class="img-responsive img-fluid" src="../assets/product_6.jpg" alt="product-img" />
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h4><router-link to="#">Tesla Model 3</router-link></h4>
-                        <p class="price">$999</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-item">
-                        <div class="product-thumb">
-                            <img class="img-responsive img-fluid" src="../assets/product_7.jpg" alt="product-img" />
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h4><router-link to="#">Audi A4</router-link></h4>
-                        <p class="price">$999</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-item">
-                        <div class="product-thumb">
-                            <img class="img-responsive img-fluid" src="../assets/product_8.jpg" alt="product-img" />
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h4><router-link to="#">McLAREN SENNA</router-link></h4>
-                        <p class="price">$999</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product-item">
-                        <div class="product-thumb">
-                            <img class="img-responsive img-fluid" src="../assets/product_9.jpg" alt="product-img" />
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <h4><router-link to="#">Volkswagen Beetle</router-link></h4>
-                        <p class="price">$999</p>
-                    </div>
-                </div>
-            </div>
+           <div class="row">
+               <div class="col-md-4" v-for="product in products" :key="product.id">
+                   <div class="product-item">
+                       <div class="product-thumb">
+                           <img class="img-responsive img-fluid" :src="require(`../assets/${product.image}`)" alt="product-img" />
+                       </div>
+                   </div>
+                   <div class="product-content">
+                       <h4><router-link :to="product.link">{{ product.name }}</router-link></h4>
+                       <p class="price">{{ product.price }}</p>
+                   </div>
+               </div>
+           </div>
         </div>
     </div>
     <div class="call-to-action bg-gray section">
@@ -239,6 +151,22 @@ export default {
         FooterBar,
         headerBar, // 注册导航条组件
     },
+    data() {
+        return {
+            products: [
+                { id: 1, name: 'Strayhorn SP', price: '$9999', image: 'product_1.jpg', link: '#' },
+                { id: 2, name: 'BMW X5', price: '$9999', image: 'product_2.jpg', link: '#' },
+                { id: 3, name: 'Ferrari 458', price: '$9999', image: 'product_3.jpg', link: '#' },
+                { id: 4, name: 'Hummer H2', price: '$9999', image: 'product_4.jpg', link: '#' },
+                { id: 5, name: 'Chevrolet Camaro', price: '$9999', image: 'product_5.jpg', link: '#' },
+                { id: 6, name: 'Tesla Model 3', price: '$9999', image: 'product_6.jpg', link: '#' },
+                { id: 7, name: 'Audi A4', price: '$9999', image: 'product_7.jpg', link: '#' },
+                { id: 8, name: 'McLAREN SENNA', price: '$9999', image: 'product_8.jpg', link: '#' },
+                { id: 9, name: 'Volkswagen Beetle', price: '$9999', image: 'product_9.jpg', link: '#' },
+                // Add other product entries here
+            ]
+        };
+    }
 }
 </script>
 

@@ -1,23 +1,3 @@
-<script>
-import HeaderBar from "@/components/HeaderBar.vue";
-import {defineComponent} from "vue";
-import FooterBar from "@/components/FooterPage.vue";
-
-export default defineComponent({
-    components: { FooterBar, HeaderBar },
-    data() {
-        return {
-            dataCollection: [
-                { id: 1, column1: '值1-1', column2: '值1-2' },
-                { id: 2, column1: '值2-1', column2: '值2-2' },
-                // 添加更多数据行
-            ]
-        };
-    }
-});
-
-</script>
-
 <template>
     <div>
         <header-bar></header-bar>
@@ -45,15 +25,14 @@ export default defineComponent({
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
             <tr v-for="item in dataCollection" :key="item.id">
                 <td>{{ item.id }}</td>
                 <td>{{ item.column1 }}</td>
-                <td>{{ item.column2 }}</td>
+                <td>{{ item.action }}</td>
                 <!-- 添加更多列的数据绑定 -->
             </tr>
             </tbody>
@@ -61,7 +40,25 @@ export default defineComponent({
     </div>
     <footer-bar></footer-bar>
 </template>
+<script>
+import HeaderBar from "@/components/HeaderBar.vue";
+import {defineComponent} from "vue";
+import FooterBar from "@/components/FooterPage.vue";
 
+export default defineComponent({
+    components: { FooterBar, HeaderBar },
+    data() {
+        return {
+            dataCollection: [
+                { id: 1, column1: '9999$',action:'' },
+                { id: 2, column1: '9999$',action:''  },
+                // 添加更多数据行
+            ]
+        };
+    }
+});
+
+</script>
 <style>
 @import "../css/_common.css";
 </style>
