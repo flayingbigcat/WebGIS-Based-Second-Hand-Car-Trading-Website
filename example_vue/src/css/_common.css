@@ -63,3 +63,19 @@
     margin-top: 15px;
     margin-bottom: 6px;
 }
+.pagination_item {
+    display: flex;
+}
+
+.pagination{
+
+}
+.page-wrapper {
+    padding:70px 0;
+}
+.dashboard-wrapper {
+    border: 1px solid #dedede;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    padding: 20px;
+}
