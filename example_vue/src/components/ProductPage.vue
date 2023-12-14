@@ -16,19 +16,19 @@
                     </div>
                 </div>
             </div>
-            <!-- 添加分页按钮 -->
-            <nav aria-label="Page navigation example">
+            <!-- 使用 Bootstrap 样式的分页 -->
+            <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-4">
                 <ul class="pagination">
                     <li class="page-item" :class="{ 'disabled': currentPage === 1 }">
-                        <router-link class="page-link btn-dark" to="#" aria-label="Previous" @click.prevent="prevPage">
+                        <router-link class="page-link" to="#" aria-label="Previous" @click.prevent="prevPage">
                             <span aria-hidden="true">&laquo;</span>
                         </router-link>
                     </li>
                     <li class="page-item" v-for="page in totalPages" :key="page" :class="{ 'active': currentPage === page }">
-                        <router-link class="page-link btn-dark" to="#" @click.prevent="gotoPage(page)">{{ page }}</router-link>
+                        <router-link class="page-link" to="#" @click.prevent="gotoPage(page)">{{ page }}</router-link>
                     </li>
                     <li class="page-item" :class="{ 'disabled': currentPage === totalPages }">
-                        <router-link class="page-link btn-dark" to="#" aria-label="Next" @click.prevent="nextPage">
+                        <router-link class="page-link" to="#" aria-label="Next" @click.prevent="nextPage">
                             <span aria-hidden="true">&raquo;</span>
                         </router-link>
                     </li>
@@ -61,7 +61,7 @@ export default {
                 { id: 6, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_6.jpg' },
                 { id: 7, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_7.jpg' },
                 { id: 8, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_8.jpg' },
-                { id: 9, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_1.jpg' },
+                { id: 9, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_6.jpg' },
                 { id: 1, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_1.jpg' },
                 { id: 2, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_2.jpg' },
                 { id: 3, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_3.jpg' },
@@ -70,7 +70,8 @@ export default {
                 { id: 6, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_6.jpg' },
                 { id: 7, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_7.jpg' },
                 { id: 8, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_8.jpg' },
-                { id: 9, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_6.jpg' },
+                { id: 9, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_1.jpg' },
+
             ],
             currentPage: 1,
             pageSize: 9, // 每页显示数量
@@ -101,10 +102,15 @@ export default {
                 this.currentPage++;
             }
         },
+        // 跳转到指定页码
+        gotoPage(page) {
+            this.currentPage = page;
+        },
     },
 };
 </script>
 
 <style>
 @import "../css/_common.css";
+/* 可添加自定义样式 */
 </style>
