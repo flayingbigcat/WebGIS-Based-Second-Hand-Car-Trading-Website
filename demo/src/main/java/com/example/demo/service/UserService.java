@@ -9,6 +9,8 @@ public interface UserService {
     public List<User> getAllUser();
     public boolean addUser(User user);
     public boolean addUserCheckIsExist(User user);
-    public User selectUserById(int id);
+
+    User selectUserByName(String name);
+
     public User userLogin(User user);
 }

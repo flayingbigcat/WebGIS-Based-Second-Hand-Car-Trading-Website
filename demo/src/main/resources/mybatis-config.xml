@@ -18,5 +18,6 @@
     <mappers>
         <!-- 加载mysql映射文件-->
         <mapper resource="./webMapper/userMapper.xml"/>
+        <mapper resource="./webMapper/orderMapper.xml"/>
     </mappers>
 </configuration>

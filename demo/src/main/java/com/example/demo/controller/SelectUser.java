@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.pojo.User;
 import com.example.demo.service.UserService;
+import org.apache.ibatis.jdbc.Null;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,12 +30,15 @@ public class SelectUser {
     }
 
     @PostMapping("/addUsercc")
-    public void addUserCheckIsExist(@RequestBody User user){
-        if(userService.selectUserById(user.getUser_id())==null){
-            userService.addUserCheckIsExist(user);
-        }
+    public String addUserCheckIsExist(@RequestBody User user){
+        if(userService.selectUserByName(user.getUser_name())!=null){
+           return "Username is already taken";
 
-//        userService.addUser(user);
+        }
+            userService.addUserCheckIsExist(user);
+            return "User registered successfully";
+
+
     }
     @PostMapping("/LoginPage")
     public ResponseEntity<String> userLogin(@RequestBody User user) {

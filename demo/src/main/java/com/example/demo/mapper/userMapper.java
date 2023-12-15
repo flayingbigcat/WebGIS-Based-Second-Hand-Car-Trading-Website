@@ -11,9 +11,9 @@ public interface userMapper {
     /**
      * 查询所有
      */
-    public List<User> selectAll();
-    public boolean addUser(User user);
-    public boolean addUserCheckIsExist(User user);
-    public User selectUserById(int id);
-    public User userLogin(User user);
+     List<User> selectAll();
+     boolean addUser(User user);
+     boolean addUserCheckIsExist(User user);
+     User selectUserByName(String name);
+     User userLogin(User user);
 }

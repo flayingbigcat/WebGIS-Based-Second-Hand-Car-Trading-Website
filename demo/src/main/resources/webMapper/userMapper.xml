@@ -16,10 +16,10 @@
  </insert>
 
     <select id="selectAll" resultType="com.example.demo.pojo.User">
-        select * from users;
+        select * from users
     </select>
-    <select id="selectUserById" resultType="com.example.demo.pojo.User">
-        select * from users where user_id=#{user_id}
+    <select id="selectUserByName" resultType="com.example.demo.pojo.User">
+        select * from users where user_name=#{user_name}
     </select>
 
     <select id="userLogin" resultType="com.example.demo.pojo.User">
