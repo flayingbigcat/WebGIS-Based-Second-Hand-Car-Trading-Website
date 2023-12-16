@@ -1,7 +1,11 @@
 package com.example.demo.mapper;
 
 import com.example.demo.pojo.order;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
+@Mapper
+@Repository
 public interface orderMapper {
-    order addOrder(order order);
+    boolean addOrder(order order);
 }

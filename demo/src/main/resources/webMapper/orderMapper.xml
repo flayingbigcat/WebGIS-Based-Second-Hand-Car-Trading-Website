@@ -6,6 +6,7 @@
 <mapper namespace="com.example.demo.mapper.orderMapper">
 
     <insert id="addOrder">
-    insert into 
+    insert into orders (order_Items,order_Price,order_Status)
+        values (#{order_Items},#{order_Price},#{order_Status})
  </insert>
 </mapper>
