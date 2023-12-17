@@ -81,11 +81,11 @@
                                 <input type="password" class="form-control" id="passwordInput" v-model="form.user_password" placeholder="PASSWORD">
                             </div>
                             <div class="mb-3">
-                                <button type="button" class="btn btn-dark text-center" @click="register">登录</button>
+                                <button type="button" class="btn btn-dark text-center" @click="register">Sign</button>
                                 <!--                                <button type="button" class="btn btn-secondary" @click="register">注册</button>-->
                             </div>
                         </form>
-                        <p class="mt-20">alread have a account?<a @click="register">To login</a></p>
+                        <p class="mt-20">Already hava an account ?<router-link to="/login"> Login</router-link></p>
                     </div>
                 </div>
             </div>
@@ -113,6 +113,19 @@ export default {
     },
     methods: {
         async register() {
+            // 前端验证
+            if (!this.form.user_name.trim()) {
+                ElMessage.error('用户名不能为空');
+                return;
+            }
+            if (!this.form.user_email.match(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/)) {
+                ElMessage.error('请输入有效的电子邮箱地址');
+                return;
+            }
+            if (!this.form.user_password || this.form.user_password.length < 6) {
+                ElMessage.error('密码不能为空且长度至少为6个字符');
+                return;
+            }
             try {
                 const response = await axios.post('http://localhost:8081/addUsercc', this.form);
                 // 处理成功或根据需要重定向到新页面
