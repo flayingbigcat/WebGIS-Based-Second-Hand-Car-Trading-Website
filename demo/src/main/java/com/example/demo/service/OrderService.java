@@ -7,5 +7,4 @@ import org.springframework.stereotype.Service;
 public interface OrderService {
     boolean addOrder(order order);
     boolean deleteOrder(order order);
-    
 }
