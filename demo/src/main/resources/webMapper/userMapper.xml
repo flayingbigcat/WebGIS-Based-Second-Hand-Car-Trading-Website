@@ -10,8 +10,8 @@
     </insert>
 
     <insert id="addUserCheckIsExist">
- insert into users (user_name, user_password,user_email)
-        values (#{user_name},#{user_password},#{user_email})
+ insert into users (user_name, user_email,user_password)
+        values (#{user_name},#{user_email},#{user_password})
 
  </insert>
 

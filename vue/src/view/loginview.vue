@@ -51,14 +51,14 @@ export default {
                 .then(response => {
                     // 登录成功
                     console.log(response.data); // 这里的 response.data 包含了用户信息
-                    if (response.data.status === 'success') {
-                        const user_email = form.value.user_email; // user获取用户名
-                        console.log("Logging in with user email:", user_email); // 调试输出
-                        localStorage.setItem('user_email', user_email); // 存储用户名
+                    // if (response.data.status === 'success') {
+                    //     const user_email = form.value.user_email; // user获取用户名
+                    //     console.log("Logging in with user email:", user_email); // 调试输出
+                    //     localStorage.setItem('user_email', user_email); // 存储用户名
                         router.push('/UserPage');
-                    } else {
-                        ElMessage.error(response.data.message);
-                    }
+                    // } else {
+                    //     ElMessage.error(response.data.message);
+                    // }
                 })
                 .catch(error => {
                     if (error.response && error.response.status === 401) {

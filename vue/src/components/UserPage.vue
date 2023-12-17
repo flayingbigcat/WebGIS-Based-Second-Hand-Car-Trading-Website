@@ -50,21 +50,21 @@ export default defineComponent({
         };
     },
     mounted() {
-        this.loadUserName(); // 在组件挂载时调用
+        // this.loadUserName(); // 在组件挂载时调用
     },
-    methods: {
-        loadUserName() {
-            const storedUserEmail = localStorage.getItem('user_email');
-            console.log("Stored User Email from localStorage:", storedUserEmail); // 调试输出
-            if (storedUserEmail) {
-                this.userEmail = storedUserEmail;
-                if (this.tableData.length > 0) {
-                    this.tableData[0].mail = storedUserEmail; // 更新 tableData 中的 mail
-                }
-            } else {
-                console.log("No user_email found in localStorage."); // 如果未找到
-            }
-        },
-    }
+    // methods: {
+    //     loadUserName() {
+    //         const storedUserEmail = localStorage.getItem('user_email');
+    //         console.log("Stored User Email from localStorage:", storedUserEmail); // 调试输出
+    //         if (storedUserEmail) {
+    //             this.userEmail = storedUserEmail;
+    //             if (this.tableData.length > 0) {
+    //                 this.tableData[0].mail = storedUserEmail; // 更新 tableData 中的 mail
+    //             }
+    //         } else {
+    //             console.log("No user_email found in localStorage."); // 如果未找到
+    //         }
+    //     },
+    // }
 })
 </script>
