@@ -52,6 +52,8 @@ export default defineComponent({
             dataCollection: [
                 { id: 1, column1: '9999$',action:'' },
                 { id: 2, column1: '9999$',action:''  },
+                { id: 2, column1: '9999$',action:''  },
+                { id: 2, column1: '9999$',action:''  },
                 // 添加更多数据行
             ]
         };

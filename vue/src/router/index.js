@@ -37,7 +37,7 @@ import UserPage from  '../components/UserPage.vue'
 const routes = [
     {
         path:'/',
-        component:login,
+        component: HelloWorld,
     },
     {
         path:'/login',

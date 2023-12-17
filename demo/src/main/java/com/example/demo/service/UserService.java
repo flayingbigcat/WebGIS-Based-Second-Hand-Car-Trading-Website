@@ -13,4 +13,6 @@ public interface UserService {
     User selectUserByName(String name);
 
     public User userLogin(User user);
+    String getUserNameByEmail(String user_email);
+
 }

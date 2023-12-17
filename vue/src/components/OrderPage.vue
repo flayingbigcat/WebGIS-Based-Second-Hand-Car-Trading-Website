@@ -1,23 +1,3 @@
-<script>
-import HeaderBar from "@/components/HeaderBar.vue";
-import {defineComponent} from "vue";
-import FooterBar from "@/components/FooterPage.vue";
-
-export default defineComponent({
-    components: {FooterBar, HeaderBar},
-    data() {
-        return {
-            tableData: [
-                { date: 'Mar 25, 2023', items: '1', price: '9999$' },
-                { date: 'Mar 25, 2023', items: '1', price: '9999$' },
-                { date: 'Mar 25, 2023', items: '1', price: '9999$' },
-            ]
-        };
-    }
-})
-
-</script>
-
 <template>
     <div>
         <header-bar></header-bar>
@@ -44,7 +24,7 @@ export default defineComponent({
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Date</th>
                     <th scope="col">Items</th>
                     <th scope="col">Total Price</th>
@@ -57,6 +37,7 @@ export default defineComponent({
                     <td v-if="item.items !== undefined">{{ item.items }}</td>
                     <td v-else colspan="2">{{ item.price }}</td>
                     <td>{{ item.price }}</td>
+                    <td><button btn-bt-dark @click="deleteRow(index)">Delete</button></td>
                 </tr>
                 </tbody>
             </table>
@@ -64,7 +45,31 @@ export default defineComponent({
     </div>
     <footer-bar></footer-bar>
 </template>
+<script>
+import HeaderBar from "@/components/HeaderBar.vue";
+import {defineComponent} from "vue";
+import FooterBar from "@/components/FooterPage.vue";
 
+export default defineComponent({
+    components: {FooterBar, HeaderBar},
+    data() {
+        return {
+            tableData: [
+                { date: 'Mar 25, 2023', items: '1', price: '9999$' },
+                { date: 'Mar 25, 2023', items: '1', price: '9999$' },
+                { date: 'Mar 25, 2023', items: '1', price: '9999$' },
+            ]
+        };
+    },
+    methods: {
+        // 删除行的方法
+        deleteRow(index) {
+            this.tableData.splice(index, 1);
+        }
+    }
+})
+
+</script>
 <style>
 @import "../css/_common.css";
 </style>
