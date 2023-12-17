@@ -1,96 +1,65 @@
 <template>
-    <div>
-        <section class="signin-page account">
-            <body id="body">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 offset-md-3">
-                        <div class="block text-center">
-                            <h2 class="text-center">Welcom Back</h2>
-                            <form @submit.prevent="submitForm" class="text-left clearfix">
-                                <div class="form-group">
-                                    <input type="text" class="form-control"  placeholder="First Name">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control"  placeholder="Last Name">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control"  placeholder="Username">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control"  placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control"  placeholder="Password">
-                                </div>
-                                <div class="text-center mt-20">
-                                    <button type="submit" class="btn btn-dark text-center">Sign In</button>
-                                </div>
-                            </form>
-                            <p class="mt-20">Already hava an account ?<router-link class="custom-link" to="/LoginPage">Login</router-link></p>
-                        </div>
+    <div class="account">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="block text-center">
+                        <h2 class="text-center">SIGN</h2>
+                        <form>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" id="userNameInput" v-model="form.user_name" placeholder="NAME">
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" id="userEmailInput" v-model="form.user_email" placeholder="EMAIL">
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" id="passwordInput" v-model="form.user_password" placeholder="PASSWORD">
+                            </div>
+                            <div class="mb-3">
+                                <button type="button" class="btn btn-dark text-center" @click="register">登录</button>
+                                <!--                                <button type="button" class="btn btn-secondary" @click="register">注册</button>-->
+                            </div>
+                        </form>
+                        <p class="mt-20">alread have a account?<a @click="register">To login</a></p>
                     </div>
                 </div>
             </div>
-            </body>
-        </section>
+        </div>
     </div>
 
 </template>
+
 <script>
+import axios from 'axios';
+// import { useRouter } from 'vue-router';
+import { ElMessage } from 'element-plus'
+// import {ref} from 'vue';
+
 export default {
+    name: 'SignUp',
     data() {
         return {
-            email: '',
-            password: ''
+            form: {
+                user_name: '',
+                user_email: '',
+                user_password: ''
+            }
         };
     },
     methods: {
-        submitForm() {
-            // 处理表单提交逻辑
-            console.log('Form submitted with:', this.email, this.password);
-        }
+        async register() {
+            try {
+                const response = await axios.post('http://localhost:8081/addUsercc', this.form);
+                // 处理成功或根据需要重定向到新页面
+                console.log(response.data);
+                // 可选地，您可以使用Vue Router在成功注册后导航到另一个页面
+                this.$router.push('/UserPage');
+            } catch (error) {
+                console.error(error);
+                // 处理注册错误，显示消息或重定向到错误页面
+                ElMessage.error('注册失败，请重试。');
+            }
+        },
     }
 };
 </script>
-<style>
-.form-group {
-    margin-bottom: 8px;
-    input {
-        font-size:12px;
-        font-weight:200;
-        height:45px;
-    }
-}
-.account .block {
-    background-color: #fff;
-    border: 1px solid #dedede;
-    padding: 30px;
-    margin: 115px auto; /* Center the block horizontally */
-    max-width: 500px; /* Set the maximum width */
-}
-.account .block form {
-    margin-top: 40px;
-}
-p {
-    font-family: "Poppins", sans-serif;
-    color: #757575;
-    font-size: 15px;
-}
-.mt-20 {
-    margin-top: 20px;
-}
-body {
-    line-height: 1.5;
-    font-family: "Poppins", sans-serif;
-    -webkit-font-smoothing: antialiased;
-}
-.custom-link {
-    color: black; /* 替换为你想要的颜色值 */
-    text-decoration: none; /* 取消下划线 */
-}
-
-.custom-link:hover {
-    color: black; /* 鼠标悬停时的颜色 */
-}
-</style>

@@ -23,6 +23,6 @@
     </select>
 
     <select id="userLogin" resultType="com.example.demo.pojo.User">
-        select * from users where user_name=#{user_name} and user_password=#{user_password}
+        select * from users where user_email=#{user_email} and user_password=#{user_password}
  </select>
 </mapper>

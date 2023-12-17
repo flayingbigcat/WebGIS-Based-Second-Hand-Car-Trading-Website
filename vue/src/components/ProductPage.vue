@@ -7,10 +7,11 @@
                         <div class="card text-center">
                             <!-- 使用 require 导入图片 -->
                             <img :src="require(`../assets/${product.imageSrc}`)" class="card-img-top" alt="">
-                            <div class="card-body">
+                            <div class="card-body ">
                                 <h5 class="card-title">{{ product.name }}</h5>
                                 <p class="card-text">{{ product.description }}</p>
                                 <router-link to="#" class="btn btn-dark">前往</router-link>
+                                <button type="button" class="btn btn-info">put cart</button>
                             </div>
                         </div>
                     </div>
