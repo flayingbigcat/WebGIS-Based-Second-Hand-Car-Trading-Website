@@ -5,5 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface OrderService {
-    public boolean addOrder(order order);
+    boolean addOrder(order order);
+    boolean deleteOrder(order order);
+    
 }

@@ -17,6 +17,9 @@ public class SelectOrder {
     @PostMapping("/addOrder")
     public boolean addOrder(@RequestBody order order){
         return orderService.addOrder(order);
-
+    }
+    @PostMapping("/deleteOrder")
+    public boolean deleteOrder(@RequestBody order order){
+        return orderService.deleteOrder(order);
     }
 }

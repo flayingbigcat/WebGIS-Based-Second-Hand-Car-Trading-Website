@@ -5,13 +5,13 @@
 
 <mapper namespace="com.example.demo.mapper.userMapper">
     <insert id="addUser" >
-        insert into users (user_name, user_password)
-        values (#{user_name},#{user_password})
+        insert into users (user_name, user_password,user_email)
+        values (#{user_name},#{user_password},#{user_email})
     </insert>
 
     <insert id="addUserCheckIsExist">
- insert into users (user_name, user_password)
-        values (#{user_name},#{user_password})
+ insert into users (user_name, user_password,user_email)
+        values (#{user_name},#{user_password},#{user_email})
 
  </insert>
 
@@ -23,6 +23,6 @@
     </select>
 
     <select id="userLogin" resultType="com.example.demo.pojo.User">
- select * from users where user_name=#{user_name} and user_password=#{user_password}
+        select * from users where user_name=#{user_name} and user_password=#{user_password}
  </select>
 </mapper>

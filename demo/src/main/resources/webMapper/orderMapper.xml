@@ -9,4 +9,8 @@
     insert into orders (order_Items,order_Price,order_Status)
         values (#{order_Items},#{order_Price},#{order_Status})
  </insert>
+    <delete id="deleteOrder">
+        delete from orders
+        where order_Id=#{order_Id}
+    </delete>
 </mapper>
