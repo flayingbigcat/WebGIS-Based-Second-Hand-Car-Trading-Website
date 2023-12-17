@@ -20,6 +20,9 @@ export default {
                         <router-link class="nav-link active" to="/ShopPage">Shop</router-link>
                     </li>
                     <li class="nav-item">
+                        <router-link class="nav-link active" to="/FeedbackPage">Feedback</router-link>
+                    </li>
+                    <li class="nav-item">
                         <router-link class="nav-link active" to="/">About</router-link>
                     </li>
                 </ul>
