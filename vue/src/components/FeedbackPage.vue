@@ -59,7 +59,7 @@ export default {
 
 <style scoped>
 .container {
-  max-width: 800px; /* Adjust the maximum width as needed */
+  max-width: 800px;
   margin: auto;
 }
 
@@ -76,5 +76,4 @@ input[type="tel"] {
   font-size: 16px;
 }
 
-/* Add any additional styles as needed */
 </style>
