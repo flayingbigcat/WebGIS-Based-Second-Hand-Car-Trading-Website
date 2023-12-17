@@ -117,7 +117,7 @@ export default {
                 const response = await axios.post('http://localhost:8081/addUsercc', this.form);
                 // 处理成功或根据需要重定向到新页面
                 console.log(response.data);
-                if (response.data.status === 'success') {
+                if (response.data === 'User registered successfully') {
                     // 可选地，您可以使用Vue Router在成功注册后导航到另一个页面
                     this.$router.push('/UserPage');
                 }
