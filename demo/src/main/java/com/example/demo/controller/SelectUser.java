@@ -43,27 +43,61 @@ public class SelectUser {
             return "User registered successfully";
     }
 
+//    @PostMapping("/login")
+//    public ResponseEntity<?> userLogin(@RequestBody User user) {
+//        try {
+//        User authenticatedUser = userService.userLogin(user);
+//        Map<String, Object> response = new HashMap<>();
+//        if (authenticatedUser != null) {
+//// 登录成功
+//            response.put("status", "success");
+//            response.put("user", authenticatedUser);
+//            return ResponseEntity.ok(response);
+//            } else {
+//// 登录失败
+//            response.put("status", "fail");
+//            response.put("message", "用户名或密码错误");
+//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+//        }
+//    } catch (Exception e) {
+//        Map<String, String> errorResponse = new HashMap<>();
+//        errorResponse.put("status", "error");
+//        errorResponse.put("message", "服务器错误");
+//        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+//    }
+//}
     @PostMapping("/login")
     public ResponseEntity<?> userLogin(@RequestBody User user) {
         try {
-        User authenticatedUser = userService.userLogin(user);
-        Map<String, Object> response = new HashMap<>();
-        if (authenticatedUser != null) {
-// 登录成功
-            response.put("status", "success");
-            response.put("user", authenticatedUser);
-            return ResponseEntity.ok(response);
+            User authenticatedUser = userService.userLogin(user);
+            Map<String, Object> response = new HashMap<>();
+            if (authenticatedUser != null) {
+    // 登录成功
+                response.put("status", "success");
+                response.put("user", authenticatedUser);
+                return ResponseEntity.ok(response);
             } else {
-// 登录失败
-            response.put("status", "fail");
-            response.put("message", "用户名或密码错误");
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+    // 登录失败
+                response.put("status", "fail");
+                response.put("message", "用户名或密码错误");
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
+            }
+        } catch (Exception e) {
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("status", "error");
+            errorResponse.put("message", "服务器错误");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
         }
-    } catch (Exception e) {
-        Map<String, String> errorResponse = new HashMap<>();
-        errorResponse.put("status", "error");
-        errorResponse.put("message", "服务器错误");
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
     }
-}
+
+    @GetMapping("/getUserName")
+    public ResponseEntity<String> getUserName(@RequestParam String user_email) {
+        // 在UserService中编写相应的逻辑来查询user_name
+        String user_name = userService.getUserNameByEmail(user_email);
+        if (user_name != null) {
+            return ResponseEntity.ok(user_name);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

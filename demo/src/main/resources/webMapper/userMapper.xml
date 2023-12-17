@@ -25,4 +25,7 @@
     <select id="userLogin" resultType="com.example.demo.pojo.User">
         select * from users where user_email=#{user_email} and user_password=#{user_password}
  </select>
+    <select id="getUserNameByEmail" resultType="com.example.demo.pojo.User">
+        SELECT user_name FROM users WHERE user_email=#{user_email}
+    </select>
 </mapper>

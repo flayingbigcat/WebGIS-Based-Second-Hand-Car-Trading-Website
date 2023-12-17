@@ -37,6 +37,7 @@ export default {
     setup(){
         const form = ref({
             user_email:'',
+            user_name:'',
             user_password:''
         })
         const router = useRouter();
@@ -51,14 +52,12 @@ export default {
                 .then(response => {
                     // 登录成功
                     console.log(response.data); // 这里的 response.data 包含了用户信息
-                    // if (response.data.status === 'success') {
-                    //     const user_email = form.value.user_email; // user获取用户名
-                    //     console.log("Logging in with user email:", user_email); // 调试输出
-                    //     localStorage.setItem('user_email', user_email); // 存储用户名
-                        router.push('/UserPage');
-                    // } else {
-                    //     ElMessage.error(response.data.message);
-                    // }
+                    localStorage.setItem('user_email', form.value.user_email);
+                    localStorage.setItem('user_name', response.data.user.user_name);
+                    console.log('----------------')
+
+                    console.log( localStorage.getItem('user_name'))
+                    router.push('/UserPage');
                 })
                 .catch(error => {
                     if (error.response && error.response.status === 401) {
