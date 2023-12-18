@@ -23,7 +23,7 @@ public class SelectProduct {
         Product product = productService.selectProductById(id);
         return product;
     }
-//
+
     @PostMapping("/deleteProduct")
     public boolean deleteProductById(@RequestParam("id") int id){
         return productService.deleteProduct(id);
