@@ -35,7 +35,7 @@ public class SelectUser {
 
     @PostMapping("/addUsercc")
     public String addUserCheckIsExist(@RequestBody User user){
-        if(userService.selectUserByName(user.getUser_name())!=null){
+        if(userService.selectUserByName(user.getUser_email())!=null){
            return "Username is already taken";
 
         }

@@ -3,7 +3,7 @@ package com.example.demo.pojo;
 public class Product {
     private int product_id;
     private String product_name;
-    private double product_price;
+    private String product_price;
 
     public int getProduct_id() {
         return product_id;
@@ -21,11 +21,11 @@ public class Product {
         this.product_name = product_name;
     }
 
-    public double getProduct_price() {
+    public String getProduct_price() {
         return product_price;
     }
 
-    public void setProduct_price(double product_price) {
+    public void setProduct_price(String product_price) {
         this.product_price = product_price;
     }
 

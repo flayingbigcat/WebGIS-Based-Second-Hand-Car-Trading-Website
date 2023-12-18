@@ -6,6 +6,7 @@ import com.example.demo.service.ProductService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -13,5 +14,15 @@ public class ProductServiceImpl implements ProductService {
     private com.example.demo.mapper.productMapper productMapper;
     public Product selectProductById(int id) {
         return productMapper.selectProductById(id);
+    }
+
+    @Override
+    public boolean deleteProduct(int id) {
+        return productMapper.deleteProduct(id);
+    }
+
+    @Override
+    public List<Product> getProduct() {
+        return productMapper.getProduct();
     }
 }

@@ -19,7 +19,7 @@
         select * from users
     </select>
     <select id="selectUserByName" resultType="com.example.demo.pojo.User">
-        select * from users where user_name=#{user_name}
+        select * from users where user_email=#{user_email}
     </select>
 
     <select id="userLogin" resultType="com.example.demo.pojo.User">
