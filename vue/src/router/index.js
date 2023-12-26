@@ -56,7 +56,7 @@ const routes = [
         { path: '/ForgetPage',component: ForgetPage},
         { path: '/TestLogin', component: TestLogin},
         { path: '/FeedbackPage', component: FeedbackPage },
-        { path: '/FavoitesPage', component: FavoritesPage},
+        { path: '/FavoritesPage', component: FavoritesPage},
     {
         path: '/UserPage', name: 'UserPage', component: UserPage
     }
