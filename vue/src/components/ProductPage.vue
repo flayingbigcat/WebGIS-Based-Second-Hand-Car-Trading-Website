@@ -72,7 +72,12 @@ export default {
                 { id: 7, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_7.jpg' },
                 { id: 8, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_8.jpg' },
                 { id: 9, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_9.jpg' },
-
+                // {
+                //     id:'',
+                //     name:'',
+                //     description:'',
+                //     imageSrc:''
+                // }
             ],
             currentPage: 1,
             pageSize: 9, // 每页显示数量
