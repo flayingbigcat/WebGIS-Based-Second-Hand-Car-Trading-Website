@@ -4,7 +4,6 @@ public class Product {
     private int product_id;
     private String product_name;
     private double product_price;
-
     public int getProduct_id() {
         return product_id;
     }
