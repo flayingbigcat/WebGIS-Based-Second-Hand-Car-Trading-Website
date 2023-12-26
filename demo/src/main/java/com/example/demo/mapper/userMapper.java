@@ -14,7 +14,7 @@ public interface userMapper {
      List<User> selectAll();
      boolean addUser(User user);
      boolean addUserCheckIsExist(User user);
-     User selectUserByName(String name);
+     User selectUserByName(String email);
      User userLogin(User user);
      String getUserNameByEmail(String user_email);
 }

@@ -10,7 +10,7 @@ public interface UserService {
     public boolean addUser(User user);
     public boolean addUserCheckIsExist(User user);
 
-    User selectUserByName(String name);
+    User selectUserByName(String email);
 
     public User userLogin(User user);
     String getUserNameByEmail(String user_email);

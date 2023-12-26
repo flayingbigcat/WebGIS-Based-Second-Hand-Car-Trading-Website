@@ -9,4 +9,10 @@
     <select id="selectProductById" resultType="com.example.demo.pojo.Product">
         select * from product where product_id=#{product_id}
     </select>
+    <delete id="deleteProduct" >
+        DELETE FROM product WHERE product_id=#{product_id}
+    </delete>
+    <select id="getProduct" resultType="com.example.demo.pojo.Product">
+        select * from product
+    </select>
 </mapper>

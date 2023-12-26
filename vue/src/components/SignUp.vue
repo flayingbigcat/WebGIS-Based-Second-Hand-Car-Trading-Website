@@ -132,6 +132,8 @@ export default {
                 console.log(response.data);
                 if (response.data === 'User registered successfully') {
                     // 可选地，您可以使用Vue Router在成功注册后导航到另一个页面
+                    localStorage.setItem('user_email', this.form.user_email);
+                    localStorage.setItem('user_name', this.form.user_name);
                     this.$router.push('/UserPage');
                 }
             } catch (error) {
