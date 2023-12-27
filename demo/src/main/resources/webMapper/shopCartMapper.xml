@@ -7,6 +7,6 @@
 
     <insert id="addShopCart">
         insert into product(user_id,product_id,product_name,product_price)
-            values ({#{user_id},#{product_id},#{product_name},#{product_price})
+            values (#{user_id},#{product_id},#{product_name},#{product_price})
     </insert>
 </mapper>

@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 @Service
-public class ShopCArtServiceImpl implements ShopCartService {
+public class ShopCartServiceImpl implements ShopCartService {
     @Resource
     private shopCartMapper shopCartMapper;
     @Override
-    public ShopCart addShopCart(ShopCart shopCart) {
+    public boolean addShopCart(ShopCart shopCart) {
         return shopCartMapper.addShopCart(shopCart);
     }
 }

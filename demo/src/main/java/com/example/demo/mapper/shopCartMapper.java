@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Mapper
 @Repository
 public interface shopCartMapper {
-    ShopCart addShopCart(ShopCart shopCart);
+    boolean addShopCart(ShopCart shopCart);
 }

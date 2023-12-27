@@ -14,7 +14,7 @@ public class SelectShopCart {
     @Resource
     private ShopCartService shopCartService;
     @PostMapping("/addShopCart")
-    ShopCart addShopCart(ShopCart shopCart){
+    boolean addShopCart(ShopCart shopCart){
         return shopCartService.addShopCart(shopCart);
     }
 }
