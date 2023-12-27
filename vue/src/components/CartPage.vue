@@ -75,6 +75,7 @@ export default {
                     this.product_id = response.data[0].product_id;
                     localStorage.setItem('product_id', this.product_id);
                 }
+                console.log( localStorage.getItem('product_id'))
                 // 打印product_id数据
             })
             .catch(error => {

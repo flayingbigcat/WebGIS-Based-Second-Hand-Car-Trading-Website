@@ -1,4 +1,4 @@
-<template>
++<template>
     <div style="height: 100vh; display: flex; align-items: center; justify-content: center; background-color: #0f9876">
         <div style="display: flex; background-color: white; width: 50%; border-radius: 5px; overflow: hidden">
             <div style="flex: 1">

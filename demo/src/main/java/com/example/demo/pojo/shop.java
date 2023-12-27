@@ -58,14 +58,4 @@ public class shop {
         this.product_description = product_description;
     }
 
-    @Override
-    public String toString() {
-        return "shop{" +
-                "product_id=" + product_id +
-                ", product_name='" + product_name + '\'' +
-                ", product_price='" + product_price + '\'' +
-                ", product_imageSrc='" + product_imageSrc + '\'' +
-                ", product_description='" + product_description + '\'' +
-                '}';
-    }
 }
