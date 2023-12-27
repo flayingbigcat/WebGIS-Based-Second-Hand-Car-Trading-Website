@@ -9,6 +9,7 @@
                             <img :src="require(`../assets/${product.product_imageSrc}`)" class="card-img-top" alt="">
                             <div class="card-body ">
                                 <h5 class="card-title">{{ product.product_name }}</h5>
+                                <h5 class="card-text">{{product.product_price}}</h5>
                                 <p class="card-text">{{ product.product_description }}</p>
                                 <router-link to="#" class="btn btn-dark">前往</router-link>
                                 <button type="button" class="btn btn-info" @click="addToCart(product)">put cart</button>
