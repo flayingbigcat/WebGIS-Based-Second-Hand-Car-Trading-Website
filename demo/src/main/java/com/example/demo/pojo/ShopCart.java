@@ -1,20 +1,27 @@
 package com.example.demo.pojo;
 
-public class Product {
+public class ShopCart {
+    private int user_id;
     private int product_id;
     private String product_name;
-
     private String product_price;
 
-    private String product_description;
-
-    public Product() {
+    public ShopCart() {
     }
 
-    public Product(int product_id, String product_name, String product_price, String product_description) {
+    public ShopCart(int user_id, int product_id, String product_name, String product_price) {
+        this.user_id = user_id;
         this.product_id = product_id;
         this.product_name = product_name;
         this.product_price = product_price;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
     public int getProduct_id() {
@@ -41,3 +48,13 @@ public class Product {
         this.product_price = product_price;
     }
 
+    @Override
+    public String toString() {
+        return "ShopCart{" +
+                "user_id=" + user_id +
+                ", product_id=" + product_id +
+                ", product_name='" + product_name + '\'' +
+                ", product_price='" + product_price + '\'' +
+                '}';
+    }
+}
