@@ -69,6 +69,7 @@ export default {
         // 在组件加载后发送HTTP请求
         axios.post('http://localhost:8081/getProduct', {}) // 发送POST请求，传递一个空对象作为请求体
             .then(response => {
+                console.log(response.data);
                 this.dataCollection = response.data; // 将后端数据填充到dataCollection数组中
                 if (response.data.length > 0) {
                     this.product_id = response.data[0].product_id;

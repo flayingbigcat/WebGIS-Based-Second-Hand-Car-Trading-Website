@@ -4,17 +4,17 @@ public class shop {
     private int product_id;
     private String product_name;
     private String product_price;
-    private String product_imagesrc;
+    private String product_imageSrc;
     private String product_description;
 
     public shop() {
     }
 
-    public shop(int product_id, String product_name, String product_price, String product_imagesrc, String product_description) {
+    public shop(int product_id, String product_name, String product_price, String product_imageSrc, String product_description) {
         this.product_id = product_id;
         this.product_name = product_name;
         this.product_price = product_price;
-        this.product_imagesrc = product_imagesrc;
+        this.product_imageSrc = product_imageSrc;
         this.product_description = product_description;
     }
 
@@ -42,12 +42,12 @@ public class shop {
         this.product_price = product_price;
     }
 
-    public String getProduct_imagesrc() {
-        return product_imagesrc;
+    public String getProduct_imageSrc() {
+        return product_imageSrc;
     }
 
-    public void setProduct_imagesrc(String product_imagesrc) {
-        this.product_imagesrc = product_imagesrc;
+    public void setProduct_imageSrc(String product_imagesrc) {
+        this.product_imageSrc = product_imagesrc;
     }
 
     public String getProduct_description() {
@@ -64,7 +64,7 @@ public class shop {
                 "product_id=" + product_id +
                 ", product_name='" + product_name + '\'' +
                 ", product_price='" + product_price + '\'' +
-                ", product_imagesrc='" + product_imagesrc + '\'' +
+                ", product_imageSrc='" + product_imageSrc + '\'' +
                 ", product_description='" + product_description + '\'' +
                 '}';
     }
