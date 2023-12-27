@@ -39,5 +39,5 @@ public class Product {
 
     public void setProduct_price(String product_price) {
         this.product_price = product_price;
-    }
+    }}
 

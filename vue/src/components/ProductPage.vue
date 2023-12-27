@@ -100,21 +100,24 @@ export default {
             this.currentPage = page;
         },
         addToCart(product) {
-            // 示例：将商品信息转换为字符串并存储到localStorage
-            let cart = localStorage.getItem('cart'); // 从localStorage获取购物车数据
-            cart = cart ? JSON.parse(cart) : []; // 如果购物车存在，解析它，否则设为空数组
-
-            // 将新商品添加到购物车数组
-            cart.push({
-                id: product.product_id,
-                name: product.product_name,
-                price: product.product_price // 确保你的产品对象里有 product_price 属性
-            });
-
-            // 将更新后的购物车数组转换回字符串并存储到localStorage
-            localStorage.setItem('cart', JSON.stringify(cart));
-            console.log(`Added to cart: ${product.product_id}, ${product.product_name},${product.product_price}`);
-            console.log( localStorage.getItem('user_id'));
+            // 构建要发送到后端的商品信息对象
+            const shopCartItem = {
+                user_id: localStorage.getItem('user_id'),// 假设用户ID存储在localStorage
+                product_id: product.product_id,
+                product_name: product.product_name, // 修改这里
+                product_price: product.product_price // 和这里
+            };
+            console.log("Adding to cart:", shopCartItem);
+            // 发送POST请求到后端
+            axios.post('http://localhost:8081/addShopCart', shopCartItem)
+                .then(response => {
+                    // 处理响应
+                    console.log("Item added to cart successfully", response);
+                })
+                .catch(error => {
+                    // 处理错误
+                    console.error("There was an error adding the item to the cart:", error);
+                });
         },
     },
 };

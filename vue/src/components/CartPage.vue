@@ -66,8 +66,10 @@ export default {
         };
     },
     mounted() {
+        // 获取存储在localStorage的user_id
+        const userId = localStorage.getItem('user_id');
         // 在组件加载后发送HTTP请求
-        axios.post('http://localhost:8081/getProduct', {}) // 发送POST请求，传递一个空对象作为请求体
+        axios.post('http://localhost:8081/getProduct', { user_id: userId }) // 发送POST请求，传递一个对象作为请求体
             .then(response => {
                 console.log(response.data);
                 this.dataCollection = response.data; // 将后端数据填充到dataCollection数组中
@@ -79,7 +81,7 @@ export default {
                 // 打印product_id数据
             })
             .catch(error => {
-                console.error('Error fetching data:', error);
+                console.error('User ID is not available', error);
             });
     },
 
