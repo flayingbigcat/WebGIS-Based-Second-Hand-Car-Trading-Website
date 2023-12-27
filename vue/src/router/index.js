@@ -7,7 +7,6 @@ import CartPage from '../components/CartPage.vue'
 import OrderPage from '../components/OrderPage.vue'
 import ShopPage from '../components/ShopPage.vue'
 import ForgetPage from '../components/ForgetPage.vue'
-import TestLogin from '../components/TextLogin.vue'
 import FeedbackPage from '../components/FeedbackPage.vue'
 import FavoritesPage from '../components/FavoritesPage.vue';
 //
@@ -54,7 +53,6 @@ const routes = [
         { path: '/OrderPage', component: OrderPage},
         { path: '/ShopPage',component: ShopPage},
         { path: '/ForgetPage',component: ForgetPage},
-        { path: '/TestLogin', component: TestLogin},
         { path: '/FeedbackPage', component: FeedbackPage },
         { path: '/FavoritesPage', component: FavoritesPage},
     {
