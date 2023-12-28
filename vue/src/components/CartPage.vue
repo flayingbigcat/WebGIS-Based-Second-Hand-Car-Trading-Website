@@ -38,11 +38,14 @@
                     <td>{{ item.product_name }}</td>
                     <td>{{ item.product_price }}</td>
                     <td>
-                        <button class="btn btn-dark" @click="deleteRow(index, item.product_id)">Delete</button>
+                        <a class="no-underline-black" @click="deleteRow(index, item.product_id)">Remove</a>
                     </td>
                 </tr>
                 </tbody>
             </table>
+            <div class="d-md-flex justify-content-md-end">
+                <button class="btn btn-dark" type="button">Checkout</button>
+            </div>
         </div>
     </div>
     <footer-bar></footer-bar>
@@ -66,18 +69,27 @@ export default {
         };
     },
     mounted() {
+        // 获取存储在localStorage的user_id
+        const userId = localStorage.getItem('user_id');
+        if (!userId) {
+            // 如果userId为空，执行路由导航到登录页面
+            this.$router.push("/login");
+        }
+        console.log(userId);
         // 在组件加载后发送HTTP请求
-        axios.post('http://localhost:8081/getProduct', {}) // 发送POST请求，传递一个空对象作为请求体
+        axios.post('http://localhost:8081/selectProduct', { user_id: userId }) // 发送POST请求，传递一个对象作为请求体
             .then(response => {
+                console.log(response.data);
                 this.dataCollection = response.data; // 将后端数据填充到dataCollection数组中
-                if (response.data.length > 0) {
-                    this.product_id = response.data[0].product_id;
-                    localStorage.setItem('product_id', this.product_id);
-                }
+                // if (response.data.length > 0) {
+                //     this.product_id = response.data[0].product_id;
+                //     localStorage.setItem('product_id', this.product_id);
+                // }
+                // console.log( localStorage.getItem('product_id'))
                 // 打印product_id数据
             })
             .catch(error => {
-                console.error('Error fetching data:', error);
+                console.error('User ID is not available', error);
             });
     },
 
@@ -102,5 +114,6 @@ export default {
 
 </script>
 <style>
+@import "../css/_product.css";
 @import "../css/_common.css";
 </style>

@@ -4,18 +4,15 @@ public class Product {
     private int product_id;
     private String product_name;
 
-    private double product_price;
-
-    private String product_description;
+    private String product_price;
 
     public Product() {
     }
 
-    public Product(int product_id, String product_name, double product_price, String product_description) {
+    public Product(int product_id, String product_name, String product_price, String product_description) {
         this.product_id = product_id;
         this.product_name = product_name;
         this.product_price = product_price;
-        this.product_description = product_description;
     }
 
     public int getProduct_id() {
@@ -34,20 +31,11 @@ public class Product {
         this.product_name = product_name;
     }
 
-    public double getProduct_price() {
+    public String getProduct_price() {
         return product_price;
     }
 
-    public void setProduct_price(double product_price) {
+    public void setProduct_price(String product_price) {
         this.product_price = product_price;
-    }
+    }}
 
-    public String getProduct_description() {
-        return product_description;
-    }
-
-    public void setProduct_description(String product_description) {
-        this.product_description = product_description;
-    }
-    //iii
-}

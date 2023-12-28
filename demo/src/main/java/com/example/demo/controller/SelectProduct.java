@@ -18,10 +18,13 @@ public class SelectProduct {
     @Resource
     private ProductService productService;
     @PostMapping("/selectId")
-    public Product selectProductById(@RequestParam("id") int id){
-        // 修改 selectProductById 方法，使其返回包含 name 和 price 的 Product 对象
+    public ResponseEntity<?> selectProductById(@RequestParam("user_id") int id){
         Product product = productService.selectProductById(id);
-        return product;
+        if (product != null) {
+            return ResponseEntity.ok(product);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product with ID: " + id + " not found.");
+        }
     }
 
     @PostMapping("/deleteProduct")
@@ -33,4 +36,11 @@ public class SelectProduct {
     List<Product> getProduct(@RequestParam("id")int id){
         return productService.getProduct(id);
     }
+
+@PostMapping("/selectProduct")
+List<Product> selectProduct(@RequestBody Map<String, Object> payload){
+    int id = Integer.parseInt(payload.get("user_id").toString());
+    return productService.selectProduct(id);
+}
+
 }

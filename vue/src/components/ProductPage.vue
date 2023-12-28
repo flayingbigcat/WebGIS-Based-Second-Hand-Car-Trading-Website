@@ -2,16 +2,17 @@
     <div class="product">
         <div class="container">
             <div class="row">
-                <div class="col-md-4" v-for="product in displayedProducts" :key="product.id">
+                <div class="col-md-4" v-for="product in displayedProducts" :key="product.product_id">
                     <div class="product-item">
                         <div class="card text-center">
                             <!-- 使用 require 导入图片 -->
-                            <img :src="require(`../assets/${product.imageSrc}`)" class="card-img-top" alt="">
+                            <img :src="require(`../assets/${product.product_imageSrc}`)" class="card-img-top" alt="">
                             <div class="card-body ">
-                                <h5 class="card-title">{{ product.name }}</h5>
-                                <p class="card-text">{{ product.description }}</p>
+                                <h5 class="card-title">{{ product.product_name }}</h5>
+                                <h5 class="card-text">{{product.product_price}}</h5>
+                                <p class="card-text">{{ product.product_description }}</p>
                                 <router-link to="#" class="btn btn-dark">前往</router-link>
-                                <button type="button" class="btn btn-info">put cart</button>
+                                <button type="button" class="btn btn-info" @click="addToCart(product)">put cart</button>
                             </div>
                         </div>
                     </div>
@@ -40,48 +41,35 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
     name: 'productList',
     data() {
         return {
             products: [
-                // { id: 1, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_1.jpg' },
-                // { id: 2, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_2.jpg' },
-                // { id: 3, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_3.jpg' },
-                // { id: 4, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_4.jpg' },
-                // { id: 5, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_5.jpg' },
-                // { id: 6, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_6.jpg' },
-                // { id: 7, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_7.jpg' },
-                // { id: 8, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_8.jpg' },
-                // { id: 9, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_9.jpg' },
-                // { id: 1, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_9.jpg' },
-                // { id: 2, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_8.jpg' },
-                // { id: 3, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_7.jpg' },
-                // { id: 4, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_6.jpg' },
-                // { id: 5, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_5.jpg' },
-                // { id: 6, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_4.jpg' },
-                // { id: 7, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_3.jpg' },
-                // { id: 8, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_2.jpg' },
-                // { id: 9, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_1.jpg' },
-                // { id: 1, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_1.jpg' },
-                // { id: 2, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_2.jpg' },
-                // { id: 3, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_3.jpg' },
-                // { id: 4, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_4.jpg' },
-                // { id: 5, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_5.jpg' },
-                // { id: 6, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_6.jpg' },
-                // { id: 7, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_7.jpg' },
-                // { id: 8, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_8.jpg' },
-                // { id: 9, name: 'Card title', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imageSrc: 'product_9.jpg' },
-                {
-                    id:'',
-                    name:'',
-                    description:'',
-                    imageSrc:''
-                }
+                // {
+                //     product_id:'1',
+                //     product_name:'Card title',
+                //     product_description:'Some quick example text to build on the card title and make up the bulk of the card\'s content.',
+                //     product_imageSrc:'product_1.jpg'
+                // }
             ],
             currentPage: 1,
             pageSize: 9, // 每页显示数量
         };
+    },
+    created() {
+        // Make an HTTP request to the backend API endpoint
+        axios.post('http://localhost:8081/selectShop')
+            .then(response => {
+                // Update the products array with the data received from the backend
+                console.log(response.data);
+                console.log("user_id",localStorage.getItem('user_id'));
+                this.products = response.data;
+            })
+            .catch(error => {
+                console.error('Error fetching data from the backend:', error);
+            });
     },
     computed: {
         // 计算属性，根据当前页码和每页显示数量计算显示的产品列表
@@ -111,6 +99,35 @@ export default {
         // 跳转到指定页码
         gotoPage(page) {
             this.currentPage = page;
+        },
+        addToCart(product) {
+            // 获取user_id
+            const userId = localStorage.getItem('user_id');
+
+            // 检查user_id是否为空
+            if (!userId) {
+                // user_id为空，跳转到登录页面
+                this.$router.push('/login');
+                return; // 退出方法执行
+            }
+            // 构建要发送到后端的商品信息对象
+            const shopCartItem = {
+                user_id: localStorage.getItem('user_id'),// 假设用户ID存储在localStorage
+                product_id: product.product_id,
+                product_name: product.product_name, // 修改这里
+                product_price: product.product_price // 和这里
+            };
+            console.log("Adding to cart:", shopCartItem);
+            // 发送POST请求到后端
+            axios.post('http://localhost:8081/addShopCart', shopCartItem)
+                .then(response => {
+                    // 处理响应
+                    console.log("Item added to cart successfully", response);
+                })
+                .catch(error => {
+                    // 处理错误
+                    console.error("There was an error adding the item to the cart:", error);
+                });
         },
     },
 };

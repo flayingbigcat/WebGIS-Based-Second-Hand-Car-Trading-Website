@@ -38,7 +38,8 @@ export default {
         const form = ref({
             user_email:'',
             user_name:'',
-            user_password:''
+            user_password:'',
+            user_id:''
         })
         const router = useRouter();
         const login = () => {
@@ -54,9 +55,11 @@ export default {
                     console.log(response.data); // 这里的 response.data 包含了用户信息
                     localStorage.setItem('user_email', form.value.user_email);
                     localStorage.setItem('user_name', response.data.user.user_name);
+                    localStorage.setItem('user_id', response.data.user.user_id);
                     console.log('----------------')
 
                     console.log( localStorage.getItem('user_name'))
+                    console.log( localStorage.getItem('user_id'))
                     router.push('/UserPage');
                 })
                 .catch(error => {
