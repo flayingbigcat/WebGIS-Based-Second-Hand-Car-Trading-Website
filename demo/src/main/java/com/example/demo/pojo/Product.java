@@ -6,8 +6,6 @@ public class Product {
 
     private String product_price;
 
-    private String product_description;
-
     public Product() {
     }
 

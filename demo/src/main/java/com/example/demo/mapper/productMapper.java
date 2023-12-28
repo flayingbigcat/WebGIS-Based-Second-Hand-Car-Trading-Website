@@ -12,4 +12,5 @@ public interface productMapper {
     Product selectProductById(int id);
     boolean deleteProduct(int id);
     List<Product> getProduct();
+    List<Product> selectProduct(int user_id);
 }
