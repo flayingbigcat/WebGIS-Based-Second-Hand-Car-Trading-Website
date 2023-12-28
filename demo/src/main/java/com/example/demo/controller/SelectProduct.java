@@ -30,7 +30,7 @@ public class SelectProduct {
     }
 
     @PostMapping("/getProduct")
-    List<Product> getProduct(){
-        return productService.getProduct();
+    List<Product> getProduct(@RequestParam("id")int id){
+        return productService.getProduct(id);
     }
 }
