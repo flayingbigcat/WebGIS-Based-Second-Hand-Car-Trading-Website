@@ -64,6 +64,7 @@ export default {
             .then(response => {
                 // Update the products array with the data received from the backend
                 console.log(response.data);
+                console.log("user_id",localStorage.getItem('user_id'));
                 this.products = response.data;
             })
             .catch(error => {
@@ -100,6 +101,15 @@ export default {
             this.currentPage = page;
         },
         addToCart(product) {
+            // 获取user_id
+            const userId = localStorage.getItem('user_id');
+
+            // 检查user_id是否为空
+            if (!userId) {
+                // user_id为空，跳转到登录页面
+                this.$router.push('/login');
+                return; // 退出方法执行
+            }
             // 构建要发送到后端的商品信息对象
             const shopCartItem = {
                 user_id: localStorage.getItem('user_id'),// 假设用户ID存储在localStorage
