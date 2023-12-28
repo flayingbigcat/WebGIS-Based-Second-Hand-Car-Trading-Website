@@ -40,6 +40,7 @@ export default {
                         <ul class="dropdown-menu">
                             <li><router-link class="dropdown-item" to="/CartPage">Cart</router-link></li>
                             <li><router-link class="dropdown-item" to="/OrderPage">Order</router-link></li>
+                            <li><router-link class="dropdown-item" to="/UserPage">UserPage</router-link></li>
                             <li><router-link class="dropdown-item" to="/FavoritesPage">Favorites</router-link></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><router-link class="dropdown-item" to="/">Something else here</router-link></li>
