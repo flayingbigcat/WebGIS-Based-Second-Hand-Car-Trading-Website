@@ -39,7 +39,12 @@ export default {
             user_email:'',
             user_name:'',
             user_password:'',
-            user_id:''
+            user_id:'',
+            user_sex:'',
+            user_phone:'',
+            user_address:'',
+            user_description:'',
+            user_imageSrc:''
         })
         const router = useRouter();
         const login = () => {
@@ -56,11 +61,22 @@ export default {
                     localStorage.setItem('user_email', form.value.user_email);
                     localStorage.setItem('user_name', response.data.user.user_name);
                     localStorage.setItem('user_id', response.data.user.user_id);
+                    localStorage.setItem('user_sex', response.data.user.user_sex);
+                    localStorage.setItem('user_phone', response.data.user.user_phone);
+                    localStorage.setItem('user_address', response.data.user.user_address);
+                    localStorage.setItem('user_description', response.data.user.user_description);
+                    localStorage.setItem('user_imageSrc', response.data.user.user_imageSrc);
+
                     console.log('----------------')
 
                     console.log( localStorage.getItem('user_name'))
                     console.log( localStorage.getItem('user_id'))
-                    router.push('/UserPage');
+                    console.log( localStorage.getItem('user_sex'))
+                    console.log( localStorage.getItem('user_phone'))
+                    console.log( localStorage.getItem('user_address'))
+                    console.log( localStorage.getItem('user_description'))
+                    console.log( localStorage.getItem('user_imageSrc'))
+                    router.push('/index');
                 })
                 .catch(error => {
                     if (error.response && error.response.status === 401) {
@@ -72,7 +88,6 @@ export default {
                     }
                 });
         };
-
         const success = () => {
             ElMessage({
                 message: '登录成功！',

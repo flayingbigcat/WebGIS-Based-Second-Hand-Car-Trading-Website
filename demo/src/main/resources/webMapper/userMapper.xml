@@ -5,27 +5,32 @@
 
 <mapper namespace="com.example.demo.mapper.userMapper">
     <insert id="addUser" >
-        insert into users (user_name, user_password,user_email)
+        insert into users1 (user_name, user_password,user_email)
         values (#{user_name},#{user_password},#{user_email})
     </insert>
 
     <insert id="addUserCheckIsExist">
- insert into users (user_name, user_email,user_password)
+ insert into users1 (user_name, user_email,user_password)
         values (#{user_name},#{user_email},#{user_password})
 
  </insert>
 
     <select id="selectAll" resultType="com.example.demo.pojo.User">
-        select * from users
+        select * from users1
     </select>
     <select id="selectUserByName" resultType="com.example.demo.pojo.User">
-        select * from users where user_email=#{user_email}
+        select * from users1 where user_email=#{user_email}
     </select>
 
     <select id="userLogin" resultType="com.example.demo.pojo.User">
-        select * from users where user_email=#{user_email} and user_password=#{user_password}
+        select * from users1 where user_email=#{user_email} and user_password=#{user_password}
  </select>
     <select id="getUserNameByEmail" resultType="com.example.demo.pojo.User">
-        SELECT user_name FROM users WHERE user_email=#{user_email}
+        SELECT user_name FROM users1 WHERE user_email=#{user_email}
     </select>
+    <update id="reviseUser">
+        update users1
+        set user_name=#{user_name},user_sex=#{user_sex},user_address=#{user_address},user_phone#{user_phone},
+            user_desrciption=#{user_description},user_imagesec=#{user_imagesrc}
+    </update>
 </mapper>

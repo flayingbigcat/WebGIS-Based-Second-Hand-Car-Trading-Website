@@ -100,4 +100,8 @@ public class SelectUser {
             return ResponseEntity.notFound().build();
         }
     }
+    @PostMapping("/reviseUser")
+    boolean reviseUser(User user){
+        return userService.reviseUser(user);
+    }
 }
