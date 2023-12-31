@@ -20,21 +20,21 @@
     <div class="container d-flex justify-content-center">
         <div class="dashboard-wrapper">
             <div class="media">
-                <div class="pull-left">
-                    <img class="media-object user-img" src="" alt="Image">
+                <div class="pull-left mb-2">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <router-link class="btn btn-outline-secondary me-md-2" to="/EditInfo">Edit Information ></router-link>
                     </div>
+                    <img class="media-object user-img" :src="require(`../assets/${user_imageSrc}`)" alt="Image">
                 </div>
                 <div class="media-body">
                     <h2 class="media-heading">{{ userName }}</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, iure, est. Sit mollitia est maxime! Eos
-                        cupiditate tempore, tempora omnis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, nihil. </p>
+                    <p>{{user_description}}</p>
                 </div>
             </div>
             <form class="row g-3">
                 <div class="col-md-4">
                     <label for="inputEmail4" class="form-label">Sex</label>
+                    <p>{{ user_sex }}</p>
                 </div>
                 <div class="col-4">
                     <label for="inputAddress" class="form-label">Email</label>
@@ -42,9 +42,11 @@
                 </div>
                 <div class="col-6">
                     <label for="inputAddress2" class="form-label">PhoneNumber</label>
+                    <p>{{user_phone}}</p>
                 </div>
                 <div class="col-md-12">
                     <label for="inputCity" class="form-label">Address</label>
+                    <p>{{user_address}}</p>
                 </div>
             </form>
         </div>
@@ -53,7 +55,7 @@
     <footer-bar></footer-bar>
 </template>
 
-<script lang="js">
+<script>
 import HeaderBar from "@/components/HeaderBar.vue";
 import FooterBar from "@/components/FooterPage.vue";
 // import { defineComponent, ref, onMounted } from 'vue';
@@ -65,14 +67,26 @@ export default{
         return {
             userName: localStorage.getItem('user_name') , // 定义 userName
             userEmail: localStorage.getItem('user_email') , // 定义 userEmail
+            user_address: localStorage.getItem('user_address'),
+            user_phone: localStorage.getItem('user_phone'),
+            user_sex: localStorage.getItem('user_sex'),
+            user_imageSrc:localStorage.getItem('user_imageSrc'),
+            user_description:localStorage.getItem('user_description'),
             tableData:[
                     {
                         userEmail: localStorage.getItem('user_email'), // 从本地存储获取user_email
                         userName: localStorage.getItem('user_name') ,// 用于存储获取的user_name
-                        address:''
+                        address:localStorage.getItem('user_address'),
+                        user_phone: localStorage.getItem('user_phone'),
+                        user_sex: localStorage.getItem('user_sex'),
+                        user_imageSrc:localStorage.getItem('user_imageSrc'),
+                        user_description:localStorage.getItem('user_description'),
                     }
             ]
         }
     },
 };
 </script>
+<style>
+@import "../css/_user.css";
+</style>

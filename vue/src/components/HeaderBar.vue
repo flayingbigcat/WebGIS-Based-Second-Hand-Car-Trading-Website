@@ -13,7 +13,7 @@ export default {
             // 更新user_id的值，以触发导航链接的重新渲染
             this.user_id = '';
             // 自动刷新页面
-            window.location.reload();
+            // window.location.reload();
         },
     },
 };
@@ -44,7 +44,7 @@ export default {
                 <ul class="nav justify-content-end">
                     <!-- 使用v-if和v-else来根据user_id的值显示不同的链接 -->
                     <li class="nav-item">
-                        <router-link v-if="user_id" class="nav-link active" @click="logout" to="">Login out</router-link>
+                        <router-link v-if="user_id" class="nav-link active" @click="logout" to="/index">Login out</router-link>
                         <router-link v-else class="nav-link active" to="/login">Login</router-link>
                     </li>
                     <li class="nav-item" v-if="!user_id">
@@ -58,7 +58,6 @@ export default {
                             <li><router-link class="dropdown-item" to="/CartPage">Cart</router-link></li>
                             <li><router-link class="dropdown-item" to="/OrderPage">Order</router-link></li>
                             <li><router-link class="dropdown-item" to="/UserPage">UserPage</router-link></li>
-                            <li><router-link class="dropdown-item" to="/FavoritesPage">Favorites</router-link></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><router-link class="dropdown-item" to="/">Something else here</router-link></li>
                         </ul>

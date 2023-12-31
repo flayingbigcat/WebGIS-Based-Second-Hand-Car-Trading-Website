@@ -9,7 +9,7 @@ public class User {
     private String user_address;
     private String user_phone;
     private String user_description;
-    private String user_imagesrc;
+    private String user_imageSrc;
 
     public User() {
     }
@@ -23,7 +23,7 @@ public class User {
         this.user_address = user_address;
         this.user_phone = user_phone;
         this.user_description = user_description;
-        this.user_imagesrc = user_imagesrc;
+        this.user_imageSrc = user_imageSrc;
     }
 
     @Override
@@ -37,7 +37,7 @@ public class User {
                 ", user_address='" + user_address + '\'' +
                 ", user_phone='" + user_phone + '\'' +
                 ", user_description='" + user_description + '\'' +
-                ", user_imagesrc='" + user_imagesrc + '\'' +
+                ", user_imageSrc='" + user_imageSrc + '\'' +
                 '}';
     }
 
@@ -105,11 +105,11 @@ public class User {
         this.user_description = user_description;
     }
 
-    public String getUser_imagesrc() {
-        return user_imagesrc;
+    public String getUser_imageSrc() {
+        return user_imageSrc;
     }
 
-    public void setUser_imagesrc(String user_imagesrc) {
-        this.user_imagesrc = user_imagesrc;
+    public void setUser_imageSrc(String user_imageSrc) {
+        this.user_imageSrc = user_imageSrc;
     }
 }

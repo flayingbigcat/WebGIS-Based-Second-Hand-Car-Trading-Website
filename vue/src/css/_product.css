@@ -1,3 +1,13 @@
 .product-remove {
-    color:$alert;
+    color:alert;
+}
+.single-product {
+    padding: 60px 0 40px;
+}
+.single-product .breadcrumb {
+    background: transparent;
+}
+.single-product .breadcrumb li a {
+    color: #000;
+    font-weight: 200;
 }

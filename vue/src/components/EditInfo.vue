@@ -21,17 +21,27 @@
         <div class="dashboard-wrapper">
             <div class="media">
                 <div class="pull-left">
-                    <img class="media-object user-img" src="" alt="Image">
+                    <img class="media-object user-img" :src="require(`../assets/${user_imageSrc}`)" alt="Image">
+                </div>
+                <div class="dropdown mt-1">
+                    <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Picture</button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
                 </div>
                 <div class="media-body">
-                    <h2 class="media-heading">{{ userName }}</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, iure, est. Sit mollitia est maxime! Eos
-                        cupiditate tempore, tempora omnis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, nihil. </p>
+                    <h2 class="media-heading">userName</h2>
+                    <input class="form-control media-heading" v-model="userName" id="userNameInput" placeholder="User Name">
+                    <p>user_description</p>
+                    <input class="form-control" v-model="userDescription" id="userEmailInput" placeholder="Email">
                 </div>
             </div>
-            <form class="row g-3">
+            <form class="row g-3 mt-1">
                 <div class="col-md-4">
                     <label for="inputEmail4" class="form-label">Sex</label>
+                    <input class="form-control" v-model="userSex" id="userSexInput" placeholder="Sex">
                 </div>
                 <div class="col-4">
                     <label for="inputAddress" class="form-label">Email</label>
@@ -39,16 +49,16 @@
                 </div>
                 <div class="col-6">
                     <label for="inputAddress2" class="form-label">PhoneNumber</label>
-                    <input class="form-control" id="inputPhoneNumber">
+                    <input class="form-control" v-model="userPhone" id="userPhoneInput" placeholder="Phone Number">
                 </div>
                 <div class="col-md-12">
                     <label for="inputCity" class="form-label">Address</label>
                     <div class="col-md-6">
-                        <input class="form-control" id="inputPhoneNumber">
+                        <input class="form-control" v-model="userAddress" id="userAddressInput" placeholder="Address">
                     </div>
                 </div>
             </form>
-            <div class="d-grid gap-2 col-2 mx-auto">
+            <div class="d-grid gap-2 col-2 mx-auto mt-3">
                 <router-link class="btn btn-outline-secondary me-md-2" to="UserPage">Save</router-link>
             </div>
         </div>
@@ -59,27 +69,26 @@
 
 
 <script>
-import {defineComponent} from 'vue'
+// import {defineComponent} from 'vue'
 import HeaderBar from "@/components/HeaderBar.vue";
 import FooterBar from "@/components/FooterPage.vue";
 
-export default defineComponent({
+export default {
     name: "EditInfo",
-    components: {FooterBar, HeaderBar},
+    components: { HeaderBar, FooterBar },
     data() {
         return {
-            userName: localStorage.getItem('user_name') , // 定义 userName
-            userEmail: localStorage.getItem('user_email') , // 定义 userEmail
-            tableData:[
-                {
-                    userEmail: localStorage.getItem('user_email'), // 从本地存储获取user_email
-                    userName: localStorage.getItem('user_name') ,// 用于存储获取的user_name
-                    address:''
-                }
-            ]
-        }
+            // 从localStorage获取数据并初始化data属性
+            userName: localStorage.getItem('user_name'),
+            userEmail: localStorage.getItem('user_email'),
+            userAddress: localStorage.getItem('user_address'),
+            userPhone: localStorage.getItem('user_phone'),
+            userSex: localStorage.getItem('user_sex'),
+            userDescription: localStorage.getItem('user_description'),
+            user_imageSrc:localStorage.getItem('user_imageSrc'),
+        };
     },
-})
+};
 </script>
 <style>
 

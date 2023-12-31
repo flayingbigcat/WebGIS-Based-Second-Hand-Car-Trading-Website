@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="dashboard-wrapper">
+        <div class="dashboard-Cart">
             <table class="table">
                 <thead>
                 <tr>
