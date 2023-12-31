@@ -2,7 +2,7 @@
     <div>
         <header-bar></header-bar>
     </div>
-    <div>
+    <div class="TopPicture">
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -129,16 +129,10 @@
                     <h2>View us on instagram</h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="instagram-slider" id="instafeed" data-accessToken="IGQVJYeUk4YWNIY1h4OWZANeS1wRHZARdjJ5QmdueXN2RFR6NF9iYUtfcGp1NmpxZA3RTbnU1MXpDNVBHTzZAMOFlxcGlkVHBKdjhqSnUybERhNWdQSE5hVmtXT013MEhOQVJJRGJBRURn"></div>
-                </div>
-            </div>
         </div>
     </div>
     <footer-bar></footer-bar>
   <div class="hello">
-    <h1>{{ msg }}</h1>
   </div>
 </template>
 
@@ -172,21 +166,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.package {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background:$black;
-    color: $light;
-    font-size:12px;
-    padding:4px 12px;
-    font-weight:300;
-    display:inline-block;
+.TopPicture {
+    padding-bottom: 80px;
 }
-.nav-item:not(:last-child) {
-    margin-right: 15px; /* 调整右边距，根据需要修改值 */
-}
-
 .carousel-inner {
     /* 设置内部图片的宽度和高度 */
     width: 100%;
@@ -247,17 +229,6 @@ export default {
     font-weight: 400;
     margin-top: 15px;
     margin-bottom: 6px;
-}
-.preview-meta {
-    position: absolute;
-    text-align: center;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    justify-content: center;
-    opacity: 0;
-    transition: 0.2s;
-    transform: translateY(10px);
 }
 .mid{
     padding: 80px 0;

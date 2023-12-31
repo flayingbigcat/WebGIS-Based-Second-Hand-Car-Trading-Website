@@ -22,9 +22,6 @@
             <div class="media">
                 <div class="pull-left">
                     <img class="media-object user-img" src="" alt="Image">
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <router-link class="btn btn-outline-secondary me-md-2" to="/EditInfo">Edit Information ></router-link>
-                    </div>
                 </div>
                 <div class="media-body">
                     <h2 class="media-heading">{{ userName }}</h2>
@@ -42,37 +39,48 @@
                 </div>
                 <div class="col-6">
                     <label for="inputAddress2" class="form-label">PhoneNumber</label>
+                    <input class="form-control" id="inputPhoneNumber">
                 </div>
                 <div class="col-md-12">
                     <label for="inputCity" class="form-label">Address</label>
+                    <div class="col-md-6">
+                        <input class="form-control" id="inputPhoneNumber">
+                    </div>
                 </div>
             </form>
+            <div class="d-grid gap-2 col-2 mx-auto">
+                <router-link class="btn btn-outline-secondary me-md-2" to="UserPage">Save</router-link>
+            </div>
         </div>
     </div>
 
     <footer-bar></footer-bar>
 </template>
 
-<script lang="js">
+
+<script>
+import {defineComponent} from 'vue'
 import HeaderBar from "@/components/HeaderBar.vue";
 import FooterBar from "@/components/FooterPage.vue";
-// import { defineComponent, ref, onMounted } from 'vue';
-// import axios from "axios";
 
-export default{
+export default defineComponent({
+    name: "EditInfo",
     components: {FooterBar, HeaderBar},
     data() {
         return {
             userName: localStorage.getItem('user_name') , // 定义 userName
             userEmail: localStorage.getItem('user_email') , // 定义 userEmail
             tableData:[
-                    {
-                        userEmail: localStorage.getItem('user_email'), // 从本地存储获取user_email
-                        userName: localStorage.getItem('user_name') ,// 用于存储获取的user_name
-                        address:''
-                    }
+                {
+                    userEmail: localStorage.getItem('user_email'), // 从本地存储获取user_email
+                    userName: localStorage.getItem('user_name') ,// 用于存储获取的user_name
+                    address:''
+                }
             ]
         }
     },
-};
+})
 </script>
+<style>
+
+</style>

@@ -60,7 +60,7 @@ export default {
 
                     console.log( localStorage.getItem('user_name'))
                     console.log( localStorage.getItem('user_id'))
-                    router.push('/UserPage');
+                    router.push('/index');
                 })
                 .catch(error => {
                     if (error.response && error.response.status === 401) {
@@ -72,7 +72,6 @@ export default {
                     }
                 });
         };
-
         const success = () => {
             ElMessage({
                 message: '登录成功！',

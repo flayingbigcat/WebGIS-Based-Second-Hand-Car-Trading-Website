@@ -9,6 +9,7 @@ import ShopPage from '../components/ShopPage.vue'
 import ForgetPage from '../components/ForgetPage.vue'
 import FeedbackPage from '../components/FeedbackPage.vue'
 import FavoritesPage from '../components/FavoritesPage.vue';
+import EditInfo from '../components/EditInfo.vue'
 //
 // // 创建路由实例
 // const router = createRouter({
@@ -57,7 +58,8 @@ const routes = [
         { path: '/FavoritesPage', component: FavoritesPage},
     {
         path: '/UserPage', name: 'UserPage', component: UserPage
-    }
+    },
+    {path: '/EditInfo',component: EditInfo}
 ]
 
 const router = createRouter({

@@ -22,6 +22,7 @@ A.page-header {
 }
 .content{
     poposition:absolute;
+    width: 70%;
     z-index: 999;
     top:0;
     padding:25px;
@@ -75,8 +76,9 @@ A.page-header {
 }
 .dashboard-wrapper {
     border: 1px solid #dedede;
+    width: 70%;
     margin-top: 30px;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
     padding: 20px;
 }
 
