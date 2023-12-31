@@ -37,8 +37,8 @@ public class SelectProduct {
         return productService.getProduct(id);
     }
 
-@PostMapping("/selectProduct")
-List<Product> selectProduct(@RequestBody Map<String, Object> payload){
+    @PostMapping("/selectProduct")
+    List<Product> selectProduct(@RequestBody Map<String, Object> payload){
     int id = Integer.parseInt(payload.get("user_id").toString());
     return productService.selectProduct(id);
 }
