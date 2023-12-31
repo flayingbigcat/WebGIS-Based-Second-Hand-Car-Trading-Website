@@ -14,5 +14,5 @@ public interface UserService {
 
     public User userLogin(User user);
     String getUserNameByEmail(String user_email);
-
+    boolean reviseUser(User user);
 }

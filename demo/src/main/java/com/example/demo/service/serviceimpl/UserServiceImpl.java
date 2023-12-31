@@ -49,4 +49,9 @@ public class UserServiceImpl implements UserService {
 
         return userMapper.getUserNameByEmail(user_email);
     }
+
+    @Override
+    public boolean reviseUser(User user) {
+        return userMapper.reviseUser(user);
+    }
 }
