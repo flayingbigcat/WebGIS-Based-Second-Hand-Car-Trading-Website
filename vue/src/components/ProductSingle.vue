@@ -20,13 +20,16 @@
                         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active" data-bs-interval="2000">
-                                    <img src="../assets/product_3.jpg" class="d-block w-100" alt="...">
+                                    <img v-if="product_imageSrc"
+                                         :src="require(`../assets/${product_imageSrc}`)" class="d-block w-100">
                                 </div>
                                 <div class="carousel-item" data-bs-interval="2000">
-                                    <img src="../assets/product_2.jpg" class="d-block w-100" alt="...">
+                                    <img v-if="product_imageSrc1"
+                                         :src="require(`../assets/${product_imageSrc1}`)" class="d-block w-100">
                                 </div>
                                 <div class="carousel-item" data-bs-interval="2000">
-                                    <img src="../assets/product_1.jpg" class="d-block w-100" alt="...">
+                                    <img v-if="product_imageSrc2"
+                                         :src="require(`../assets/${product_imageSrc2}`)" class="d-block w-100">
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -42,12 +45,10 @@
                 </div>
                 <div class="col-md-7">
                     <div class="single-product-details">
-                        <h2>Eclipse Crossbody</h2>
-                        <p class="product-price">$300</p>
+                        <h2>{{product_name}}</h2>
+                        <p class="product-price">{{product_price}}</p>
 
-                        <p class="product-description mt-20">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum ipsum dicta quod, quia doloremque aut deserunt commodi quis. Totam a consequatur beatae nostrum, earum consequuntur? Eveniet consequatur ipsum dicta recusandae.
-                        </p>
+                        <p class="product-description mt-20">{{product_description1}}</p>
                         <div class="color-swatches">
                             <span>color:</span>
                             <ul>
@@ -78,7 +79,7 @@
                                 <button @click="changeQuantity(1)">+</button>
                             </div>
                         </div>
-                        <a href="cart.html" class="btn btn-dark mt-20">Add To Cart</a>
+                        <button class="btn btn-info mt-20" type="button" @click="addToCart">put cart</button>
                     </div>
                 </div>
             </div>
@@ -91,14 +92,25 @@
 
 import HeaderBar from "@/components/HeaderBar.vue";
 import FooterBar from "@/components/FooterPage.vue";
-
+import axios from "axios";
 export default {
     name: "ProductSingle",
     components: {FooterBar, HeaderBar},
+    props: ['productId'],
     data() {
         return {
             quantity: 1, // 初始化为1
+            product_imageSrc:'product_1.jpg',
+            product_imageSrc1:'product_2.jpg',
+            product_imageSrc2:'product_3.jpg',
+            product_name:'',
+            product_price:'',
+            product_description1:'',
+            localProductId: this.$route.params.productId, // 使用本地 data 属性
         };
+    },
+    created() {
+        this.loadProductData();
     },
     methods: {
         changeQuantity(change) {
@@ -106,7 +118,63 @@ export default {
             if (newQuantity >= 0) { // 确保数量不小于0
                 this.quantity = newQuantity;
             }
-        }
+        },
+        loadProductData() {
+            if (this.productId) {
+                // 创建一个对象来发送 id 参数
+                const params = new URLSearchParams();
+                params.append('id', this.productId);
+
+                axios.post('http://localhost:8081/selectShop1', params)
+                    .then(response => {
+                        // 请求成功，处理返回的数据
+                        console.log(response.data)
+                        const product = response.data;
+                        this.product_name = product.product_name;
+                        this.product_price = product.product_price;
+                        this.product_description1 = product.product_description1;
+                        this.product_imageSrc = product.product_imageSrc;
+                        this.product_imageSrc1 = product.product_imageSrc1;
+                        this.product_imageSrc2 = product.product_imageSrc2;
+                    })
+                    .catch(error => {
+                        // 请求失败，打印错误信息
+                        console.error('Error fetching product data:', error);
+                    });
+            } else {
+                // productId 未定义，打印错误信息
+                console.error('Product ID is undefined');
+            }
+        },
+        addToCart() {
+            // 获取user_id
+            const userId = localStorage.getItem('user_id');
+
+            // 检查user_id是否为空
+            if (!userId) {
+                // user_id为空，跳转到登录页面
+                this.$router.push('/login');
+                return; // 退出方法执行
+            }
+            // 构建要发送到后端的商品信息对象
+            const shopCartItem = {
+                user_id: localStorage.getItem('user_id'),// 假设用户ID存储在localStorage
+                product_id: this.localProductId,
+                product_name: this.product_name, // 修改这里
+                product_price:  this.product_price // 和这里
+            };
+            console.log("Adding to cart:", shopCartItem);
+            // 发送POST请求到后端
+            axios.post('http://localhost:8081/addShopCart', shopCartItem)
+                .then(response => {
+                    // 处理响应
+                    console.log("Item added to cart successfully", response);
+                })
+                .catch(error => {
+                    // 处理错误
+                    console.error("There was an error adding the item to the cart:", error);
+                });
+        },
     }
 }
 </script>

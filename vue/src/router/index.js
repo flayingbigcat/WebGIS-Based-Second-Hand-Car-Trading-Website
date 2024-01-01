@@ -59,7 +59,15 @@ const routes = [
         path: '/UserPage', name: 'UserPage', component: UserPage
     },
     {path: '/EditInfo',component: EditInfo},
-    {path: '/ProductSingle',component: ProductSingle}
+    {path: '/ProductSingle',component: ProductSingle},
+    {
+        path: '/ProductSingle/:productId', // 动态片段是 ":productId"
+        component: ProductSingle,
+        props: true, // 允许通过 props 接收路由参数
+        meta: {
+            refresh: true // 添加此标记以强制重新加载页面
+        }
+    },
 ]
 
 const router = createRouter({
