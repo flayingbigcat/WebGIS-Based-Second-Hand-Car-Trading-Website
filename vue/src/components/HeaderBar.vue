@@ -1,9 +1,12 @@
 <script>
+import axios from "axios";
 export default {
     name: 'headerBar',
     data() {
         return {
             user_id: localStorage.getItem('user_id') || '', // 获取localStorage中的user_id
+            productName:'',
+            product_id:''
         };
     },
     methods: {
@@ -14,6 +17,30 @@ export default {
             this.user_id = '';
             // 自动刷新页面
             // window.location.reload();
+        },
+        searchProduct(event) {
+            // 发送产品名称到后端
+            event.preventDefault();
+            console.log('input:',this.productName)
+            axios.post('http://localhost:8081/searchShop', { productName: this.productName })
+                .then(response => {
+                    console.log('response:',response.data)
+                    if (response.data !== null) {
+                        // 如果后端返回不为空，执行页面跳转操作
+                        this.product_id = response.data.product_id;
+                        console.log('product_id:',this.product_id)
+                        this.$router.push({ path: `/ProductSingle/${this.product_id}`}); // 替换成你的目标路由路径
+                        event.preventDefault(); // 阻止默认行为
+                        // // 根据后端返回的结果执行相应的操作，比如显示搜索结果或者其他操作
+                    } else {
+                        // 如果后端返回为空，弹出警告框
+                        alert('Can not find the porduct');
+                    }
+                })
+                .catch(error => {
+                    // 处理请求错误
+                    console.error(error);
+                });
         },
     },
 };
@@ -64,8 +91,8 @@ export default {
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <input v-model="productName" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button @click="searchProduct($event)" class="btn btn-outline-success" type="button">Search</button>
                 </form>
             </div>
         </div>

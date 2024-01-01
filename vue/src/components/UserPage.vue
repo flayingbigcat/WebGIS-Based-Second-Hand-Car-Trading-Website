@@ -25,8 +25,7 @@
                         <router-link class="btn btn-outline-secondary me-md-2" to="/EditInfo">Edit Information ></router-link>
                     </div>
                     <img class="media-object user-img" v-if="user.user_imageSrc"
-                         :src="require(`../assets/${user.user_imageSrc}`)"
-                         alt="Image">
+                         :src="require(`../assets/${user.user_imageSrc}`)">
                 </div>
                 <div class="media-body">
                     <h2 class="media-heading">{{ user.user_name }}</h2>

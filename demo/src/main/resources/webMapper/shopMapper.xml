@@ -8,4 +8,11 @@
     <select id="selectShop" resultType="com.example.demo.pojo.shop">
         select * from shop;
     </select>
+    <select id="selectShop1" resultType="com.example.demo.pojo.shop">
+        select * from shop where product_id=#{product_id};
+    </select>
+    <select id="searchShop" resultType="com.example.demo.pojo.shop">
+        select * from shop where product_name=#{product_name};
+    </select>
+
 </mapper>

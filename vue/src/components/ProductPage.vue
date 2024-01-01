@@ -11,10 +11,8 @@
                                 <h5 class="card-title">{{ product.product_name }}</h5>
                                 <h5 class="card-text">{{product.product_price}}</h5>
                                 <p class="card-text">{{ product.product_description }}</p>
-<!--                                <router-link to="#" class="btn btn-dark gap-2">前往</router-link>-->
-<!--                                <button type="button" class="btn btn-info gap-2" @click="addToCart(product)">put cart</button>-->
                                 <div class="d-grid gap-2 d-md-flex justify-content-center">
-                                    <router-link class="btn btn-dark me-md-2" to="/ProductSingle">View</router-link>
+                                    <router-link :to="`/ProductSingle/${product.product_id}`" class="btn btn-dark me-md-2">View</router-link>
                                     <button class="btn btn-info" type="button" @click="addToCart(product)">put cart</button>
                                 </div>
                             </div>
