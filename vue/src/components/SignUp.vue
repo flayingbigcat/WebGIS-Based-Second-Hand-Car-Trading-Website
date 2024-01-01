@@ -105,6 +105,7 @@ export default {
     data() {
         return {
             form: {
+                user_id:'',
                 user_name: '',
                 user_email: '',
                 user_password: ''
@@ -126,14 +127,18 @@ export default {
                 ElMessage.error('密码不能为空且长度至少为6个字符');
                 return;
             }
+            // 'User registered successfully'
             try {
                 const response = await axios.post('http://localhost:8081/addUsercc', this.form);
                 // 处理成功或根据需要重定向到新页面
                 console.log(response.data);
-                if (response.data === 'User registered successfully') {
+                if (response.data !== null) {
                     // 可选地，您可以使用Vue Router在成功注册后导航到另一个页面
+                    this.user_id=response.data.user_id;
+                    localStorage.setItem('user_id',this.user_id);
                     localStorage.setItem('user_email', this.form.user_email);
                     localStorage.setItem('user_name', this.form.user_name);
+                    console.log('user_id',this.user_id)
                     this.$router.push('/UserPage');
                 }
             } catch (error) {

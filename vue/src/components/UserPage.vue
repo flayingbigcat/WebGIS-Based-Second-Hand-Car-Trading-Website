@@ -78,6 +78,7 @@ export default{
         async getUserMeg(){
             // const user = {
             const user_id = this.user_id; // 确保这是有效的用户标识符
+            console.log(user_id)
 
             // };
             const apiUrl = `http://localhost:8081/selectUser?id=${user_id}`;

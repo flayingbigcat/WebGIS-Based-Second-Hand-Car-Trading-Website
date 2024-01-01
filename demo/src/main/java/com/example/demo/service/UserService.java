@@ -16,4 +16,5 @@ public interface UserService {
     String getUserNameByEmail(String user_email);
     boolean reviseUser(User user);
     User selectUser(int id);
+    User selectId(String user_email);
 }
