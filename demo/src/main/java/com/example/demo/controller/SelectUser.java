@@ -101,7 +101,11 @@ public class SelectUser {
         }
     }
     @PostMapping("/reviseUser")
-    boolean reviseUser(User user){
+    boolean reviseUser(@RequestBody User user){
         return userService.reviseUser(user);
+    }
+    @GetMapping("/selectUser")
+    User selectUser(@RequestParam("id") int id){
+        return userService.selectUser(id);
     }
 }

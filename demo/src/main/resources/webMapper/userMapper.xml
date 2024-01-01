@@ -30,7 +30,16 @@
     </select>
     <update id="reviseUser">
         update users1
-        set user_name=#{user_name},user_sex=#{user_sex},user_address=#{user_address},user_phone#{user_phone},
-            user_desrciption=#{user_description},user_imagesec=#{user_imagesrc}
+        set user_name=#{user_name},
+        user_sex=#{user_sex},
+        user_address=#{user_address},
+        user_phone=#{user_phone},
+        user_description=#{user_description},
+        user_imageSrc=#{user_imageSrc}
+        where user_id=#{user_id}
     </update>
+
+    <select id="selectUser" resultType="com.example.demo.pojo.User">
+        select * from users1 where user_id=#{user_id}
+    </select>
 </mapper>
