@@ -24,29 +24,31 @@
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <router-link class="btn btn-outline-secondary me-md-2" to="/EditInfo">Edit Information ></router-link>
                     </div>
-                    <img class="media-object user-img" :src="require(`../assets/${user_imageSrc}`)" alt="Image">
+                    <img class="media-object user-img" v-if="user.user_imageSrc"
+                         :src="require(`../assets/${user.user_imageSrc}`)"
+                         alt="Image">
                 </div>
                 <div class="media-body">
-                    <h2 class="media-heading">{{ userName }}</h2>
-                    <p>{{user_description}}</p>
+                    <h2 class="media-heading">{{ user.user_name }}</h2>
+                    <p>{{user.user_description}}</p>
                 </div>
             </div>
             <form class="row g-3">
                 <div class="col-md-4">
                     <label for="inputEmail4" class="form-label">Sex</label>
-                    <p>{{ user_sex }}</p>
+                    <p>{{ user.user_sex }}</p>
                 </div>
                 <div class="col-4">
                     <label for="inputAddress" class="form-label">Email</label>
-                    <p>{{ userEmail }}</p>
+                    <p>{{ user.user_email }}</p>
                 </div>
                 <div class="col-6">
                     <label for="inputAddress2" class="form-label">PhoneNumber</label>
-                    <p>{{user_phone}}</p>
+                    <p>{{user.user_phone}}</p>
                 </div>
                 <div class="col-md-12">
                     <label for="inputCity" class="form-label">Address</label>
-                    <p>{{user_address}}</p>
+                    <p>{{user.user_address}}</p>
                 </div>
             </form>
         </div>
@@ -58,6 +60,7 @@
 <script>
 import HeaderBar from "@/components/HeaderBar.vue";
 import FooterBar from "@/components/FooterPage.vue";
+import axios from "axios";
 // import { defineComponent, ref, onMounted } from 'vue';
 // import axios from "axios";
 
@@ -65,25 +68,34 @@ export default{
     components: {FooterBar, HeaderBar},
     data() {
         return {
-            userName: localStorage.getItem('user_name') , // 定义 userName
-            userEmail: localStorage.getItem('user_email') , // 定义 userEmail
-            user_address: localStorage.getItem('user_address'),
-            user_phone: localStorage.getItem('user_phone'),
-            user_sex: localStorage.getItem('user_sex'),
-            user_imageSrc:localStorage.getItem('user_imageSrc'),
-            user_description:localStorage.getItem('user_description'),
-            tableData:[
-                    {
-                        userEmail: localStorage.getItem('user_email'), // 从本地存储获取user_email
-                        userName: localStorage.getItem('user_name') ,// 用于存储获取的user_name
-                        address:localStorage.getItem('user_address'),
-                        user_phone: localStorage.getItem('user_phone'),
-                        user_sex: localStorage.getItem('user_sex'),
-                        user_imageSrc:localStorage.getItem('user_imageSrc'),
-                        user_description:localStorage.getItem('user_description'),
-                    }
-            ]
-        }
+            // 从localStorage获取数据并初始化data属性
+            user_id:localStorage.getItem('user_id'),
+            user_imageSrc: 'user_8.jpg',
+            user: [
+            ],
+        };
+    },
+    methods:{
+        async getUserMeg(){
+            // const user = {
+            const user_id = this.user_id; // 确保这是有效的用户标识符
+
+            // };
+            const apiUrl = `http://localhost:8081/selectUser?id=${user_id}`;
+            try {
+                const response = await axios.get(apiUrl);
+                console.log("Response Data:", response.data);
+                this.user = response.data;
+                // 根据成功响应进行导航
+                // this.$router.push('/UserPage');
+            } catch (error) {
+                console.error("An error occurred:", error.response);
+            }
+        },
+    },
+
+    created() {
+        this.getUserMeg();
     },
 };
 </script>
