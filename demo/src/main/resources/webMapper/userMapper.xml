@@ -42,4 +42,7 @@
     <select id="selectUser" resultType="com.example.demo.pojo.User">
         select * from users1 where user_id=#{user_id}
     </select>
+    <select id="selectId" resultType="com.example.demo.pojo.User">
+        select * from users1 where user_email=#{user_email}
+    </select>
 </mapper>

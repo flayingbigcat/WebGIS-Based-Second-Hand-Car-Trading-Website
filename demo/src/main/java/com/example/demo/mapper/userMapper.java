@@ -19,4 +19,5 @@ public interface userMapper {
      String getUserNameByEmail(String user_email);
      boolean reviseUser(User user);
      User selectUser(int id);
+     User selectId(String email);
 }

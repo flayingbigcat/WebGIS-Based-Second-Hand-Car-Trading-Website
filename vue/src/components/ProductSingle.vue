@@ -8,7 +8,7 @@
                 <div class="col-md-6">
                     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><router-link to="#" style="text-decoration: none;">Home</router-link></li>
+                            <li class="breadcrumb-item"><router-link to="/index" style="text-decoration: none;">Home</router-link></li>
                             <li class="breadcrumb-item active" aria-current="page">Library</li>
                         </ol>
                     </nav>

@@ -25,16 +25,16 @@ export default {
             axios.post('http://localhost:8081/searchShop', { productName: this.productName })
                 .then(response => {
                     console.log('response:',response.data)
-                    if (response.data !== null) {
+                    // 如果后端返回不为空，执行页面跳转操作
+                    this.product_id = response.data.product_id;
+                    if (response.data !== null && this.product_id !== undefined) {
                         // 如果后端返回不为空，执行页面跳转操作
                         this.product_id = response.data.product_id;
-                        console.log('product_id:',this.product_id)
-                        this.$router.push({ path: `/ProductSingle/${this.product_id}`}); // 替换成你的目标路由路径
-                        event.preventDefault(); // 阻止默认行为
-                        // // 根据后端返回的结果执行相应的操作，比如显示搜索结果或者其他操作
+                        console.log('product_id:', this.product_id);
+                        this.$router.push({ path: `/ProductSingle/${this.product_id}` });
                     } else {
                         // 如果后端返回为空，弹出警告框
-                        alert('Can not find the porduct');
+                        alert('Can not find the product');
                     }
                 })
                 .catch(error => {

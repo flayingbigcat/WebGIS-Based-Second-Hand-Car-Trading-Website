@@ -34,13 +34,13 @@ public class SelectUser {
     }
 
     @PostMapping("/addUsercc")
-    public String addUserCheckIsExist(@RequestBody User user){
+    public User addUserCheckIsExist(@RequestBody User user){
         if(userService.selectUserByName(user.getUser_email())!=null){
-           return "Username is already taken";
-
+            return null;
         }
-            userService.addUserCheckIsExist(user);
-            return "User registered successfully";
+            userService.addUserCheckIsExist(user);//添加用户
+        return userService.selectId(user.getUser_email());//添加用户后，通过用户的邮箱查询数据返回给前端
+
     }
 
 //    @PostMapping("/login")

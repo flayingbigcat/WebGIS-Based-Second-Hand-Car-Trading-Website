@@ -32,8 +32,8 @@ public class UserServiceImpl implements UserService {
             return  true;
         }
         return false;
-    }
 
+    }
     @Override
     public User selectUserByName(String email) {
         return userMapper.selectUserByName(email);
@@ -58,5 +58,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User selectUser(int id) {
         return userMapper.selectUser(id);
+    }
+
+    @Override
+    public User selectId(String user_email) {
+        return userMapper.selectId(user_email);
     }
 }
