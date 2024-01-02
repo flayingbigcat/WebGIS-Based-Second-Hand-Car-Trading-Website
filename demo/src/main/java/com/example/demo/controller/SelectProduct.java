@@ -42,5 +42,4 @@ public class SelectProduct {
     int id = Integer.parseInt(payload.get("user_id").toString());
     return productService.selectProduct(id);
 }
-
 }
