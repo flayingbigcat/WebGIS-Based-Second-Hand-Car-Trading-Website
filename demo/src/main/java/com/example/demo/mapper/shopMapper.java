@@ -13,4 +13,5 @@ public interface shopMapper {
     List<shop> selectShop();
     shop selectShop1(int id);
     shop searchShop(@Param("product_name") String product_name);
+    List<shop> selectShop2();
 }

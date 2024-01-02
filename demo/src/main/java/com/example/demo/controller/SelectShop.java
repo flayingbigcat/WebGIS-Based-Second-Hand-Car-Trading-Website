@@ -43,4 +43,9 @@ public class SelectShop {
         System.out.println(shopService.searchShop(productName));
         return shopService.searchShop(productName);
     }
+
+    @PostMapping("/selectShop2")
+    List<shop> selectShop2(){
+        return shopService.selectShop2();
+    }
 }
