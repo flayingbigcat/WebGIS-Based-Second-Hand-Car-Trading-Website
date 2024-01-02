@@ -23,6 +23,9 @@
     </div>
     <div class="container">
         <div class="dashboard-Cart">
+            <div class="media-body">
+                <h2 class="media-heading">{{ user_name }}</h2>
+            </div>
             <table class="table">
                 <thead class="table-group-divider">
                 <tr>
@@ -59,6 +62,7 @@ export default {
     components: { FooterBar, HeaderBar },
     data() {
         return {
+            user_name:localStorage.getItem('user_name'),
             dataCollection: [
                 {
                     product_id:'',

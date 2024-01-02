@@ -133,7 +133,7 @@ export default {
                 // 处理成功或根据需要重定向到新页面
                 console.log(response.data);
                 if (response.data !== null) {
-                    // 可选地，您可以使用Vue Router在成功注册后导航到另一个页面
+                    // 可选地，可以使用Vue Router在成功注册后导航到另一个页面
                     this.user_id=response.data.user_id;
                     localStorage.setItem('user_id',this.user_id);
                     localStorage.setItem('user_email', this.form.user_email);
