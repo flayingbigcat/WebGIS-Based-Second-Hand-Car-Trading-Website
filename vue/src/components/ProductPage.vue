@@ -125,6 +125,7 @@ export default {
                 .then(response => {
                     // 处理响应
                     console.log("Item added to cart successfully", response);
+                    alert("Item added to cart successfully");
                 })
                 .catch(error => {
                     // 处理错误
