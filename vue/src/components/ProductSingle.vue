@@ -106,7 +106,7 @@ export default {
             product_name:'',
             product_price:'',
             product_description1:'',
-            localProductId: this.$route.params.productId, // 使用本地 data 属性
+            localProductId: this.$route.params.product_id, // 使用本地 data 属性
         };
     },
     created() {
