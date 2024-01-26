@@ -157,7 +157,7 @@ export default {
         };
     },
     created() {
-        axios.post('http://localhost:8081/selectShop2')
+        axios.post('http://192.168.1.27:8081/selectShop2')
             .then(response => {
                 // Update the products array with the data received from the backend
                 this.products = response.data;

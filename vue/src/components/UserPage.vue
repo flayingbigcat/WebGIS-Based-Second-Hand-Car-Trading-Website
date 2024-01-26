@@ -81,7 +81,7 @@ export default{
             console.log(user_id)
 
             // };
-            const apiUrl = `http://localhost:8081/selectUser?id=${user_id}`;//变量请求
+            const apiUrl = `http://192.168.1.27:8081/selectUser?id=${user_id}`;//变量请求
             try {
                 const response = await axios.get(apiUrl);
                 console.log("Response Data:", response.data);

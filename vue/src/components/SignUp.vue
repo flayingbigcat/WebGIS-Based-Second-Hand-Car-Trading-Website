@@ -129,7 +129,7 @@ export default {
             }
             // 'User registered successfully'
             try {
-                const response = await axios.post('http://localhost:8081/addUsercc', this.form);
+                const response = await axios.post('http://192.168.1.27:8081/addUsercc', this.form);
                 // 处理成功或根据需要重定向到新页面
                 console.log(response.data);
                 if (response.data !== null) {
