@@ -22,7 +22,7 @@ export default {
             // 发送产品名称到后端
             event.preventDefault();
             console.log('input:',this.productName)
-            axios.post('http://localhost:8081/searchShop', { productName: this.productName })
+            axios.post('http://192.168.1.27:8081/searchShop', { productName: this.productName })
                 .then(response => {
                     console.log('response:',response.data)
                     // 如果后端返回不为空，执行页面跳转操作

@@ -88,7 +88,7 @@ export default {
             user_address:'',
             user_phone:'',
             user_description:'',
-            user_imageSrc:localStorage.getItem('user_imageSrc'),
+            user_imageSrc: localStorage.getItem('user_imageSrc') || 'user_8.jpg', // 设置默认值为 'user_8.jpg'
         };
     },
     methods:{
@@ -104,7 +104,7 @@ export default {
                 user_imageSrc: this.user_imageSrc,
             };
 
-            const apiUrl = "http://localhost:8081/reviseUser"; // 后端的接口地址
+            const apiUrl = "http://192.168.1.27:8081/reviseUser"; // 后端的接口地址
 
             try {
                 const response = await axios.post(apiUrl, user);
@@ -119,7 +119,7 @@ export default {
                const user_id = this.user_id; // 确保这是有效的用户标识符
 
             // };
-            const apiUrl = `http://localhost:8081/selectUser?id=${user_id}`;
+            const apiUrl = `http://192.168.1.27:8081/selectUser?id=${user_id}`;
             try {
                 const response = await axios.get(apiUrl);
                 console.log("Response Data:", response.data);
@@ -140,8 +140,6 @@ export default {
     created() {
         this.getUserMeg();
     },
-
-
 };
 </script>
 <style>

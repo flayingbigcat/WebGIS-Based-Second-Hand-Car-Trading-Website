@@ -62,7 +62,7 @@ export default {
     },
     created() {
         // Make an HTTP request to the backend API endpoint
-        axios.post('http://localhost:8081/selectShop')
+        axios.post('http://192.168.1.27:8081/selectShop')
             .then(response => {
                 // Update the products array with the data received from the backend
                 console.log(response.data);
@@ -121,7 +121,7 @@ export default {
             };
             console.log("Adding to cart:", shopCartItem);
             // 发送POST请求到后端
-            axios.post('http://localhost:8081/addShopCart', shopCartItem)
+            axios.post('http://192.168.1.27:8081/addShopCart', shopCartItem)
                 .then(response => {
                     // 处理响应
                     console.log("Item added to cart successfully", response);

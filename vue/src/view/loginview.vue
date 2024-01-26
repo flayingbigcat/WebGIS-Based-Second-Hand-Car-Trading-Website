@@ -50,7 +50,7 @@ export default {
         const login = () => {
             console.log(JSON.stringify(form.value)); // 打印发送到后端的数据
 
-            axios.post('http://localhost:8081/login', JSON.stringify(form.value), {
+            axios.post('http://192.168.1.27:8081/login', JSON.stringify(form.value), {
                 headers: {
                     'Content-Type': 'application/json',
                 }
@@ -69,13 +69,13 @@ export default {
 
                     console.log('----------------')
 
-                    console.log( localStorage.getItem('user_name'))
-                    console.log( localStorage.getItem('user_id'))
-                    console.log( localStorage.getItem('user_sex'))
-                    console.log( localStorage.getItem('user_phone'))
-                    console.log( localStorage.getItem('user_address'))
-                    console.log( localStorage.getItem('user_description'))
-                    console.log( localStorage.getItem('user_imageSrc'))
+                    // console.log( localStorage.getItem('user_name'))
+                    // console.log( localStorage.getItem('user_id'))
+                    // console.log( localStorage.getItem('user_sex'))
+                    // console.log( localStorage.getItem('user_phone'))
+                    // console.log( localStorage.getItem('user_address'))
+                    // console.log( localStorage.getItem('user_description'))
+                    // console.log( localStorage.getItem('user_imageSrc'))
                     router.push('/index');
                 })
                 .catch(error => {

@@ -81,7 +81,7 @@ export default {
         }
         console.log(userId);
         // 在组件加载后发送HTTP请求
-        axios.post('http://localhost:8081/selectProduct', { user_id: userId }) // 发送POST请求，传递一个对象作为请求体
+        axios.post('http://192.168.1.27:8081/selectProduct', { user_id: userId }) // 发送POST请求，传递一个对象作为请求体
             .then(response => {
                 console.log(response.data);
                 this.dataCollection = response.data; // 将后端数据填充到dataCollection数组中
@@ -104,7 +104,7 @@ export default {
             this.dataCollection.splice(index, 1);
             const deletedProductId = productId;
             // 发送删除请求到后端接口
-            axios.post(`http://localhost:8081/deleteProduct?id=${productId}`)
+            axios.post(`http://192.168.1.27:8081/deleteProduct?id=${productId}`)
                 .then(() => {
                     // 处理后端删除成功的响应
                     console.log('Data deleted successfully from the backend Deleted product',deletedProductId);
