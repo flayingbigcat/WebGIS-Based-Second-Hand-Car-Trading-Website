@@ -92,7 +92,7 @@ export default {
                 </ul>
                 <form class="d-flex" role="search">
                     <input v-model="productName" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button @click="searchProduct($event)" class="btn btn-outline-success" type="button">Search</button>
+                    <button @click="searchProduct" class="btn btn-outline-success" type="button">Search</button>
                 </form>
             </div>
         </div>
